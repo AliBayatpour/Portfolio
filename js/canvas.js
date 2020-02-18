@@ -139,21 +139,22 @@ let miniStars;
 let backgroundStars = [];
 let ticker = 0;
 let randomSpawnRate = 75;
-let groundHeight = 100;
+let groundHeight = 50;
 function init() {
   stars = [];
   miniStars = [];
   backgroundStars= [];
 
+  // SMALL STARS IN THE SKY
   for (let i = 0; i < 150; i++) {
     const x = Math.random() * canvas.width;
     const y = Math.random() * canvas.height;
-    const radius = Math.random() * 3;
+    const radius = Math.random() * 2;
     backgroundStars.push(new Star(x, y, radius, "white"));
   }
 }
 
-// Animation Loop
+// ANIMATION LOOP
 animate = () => {
   requestAnimationFrame(animate);
   c.fillStyle = backgroundGradient;
@@ -162,8 +163,7 @@ animate = () => {
     backgroundStar.draw();
   });
 
-  // createMountainRange(1, canvas.height - 50, "#384551");
-  // createMountainRange(2, canvas.height - 100, "#2b3843");
+  // CREATE MOUNTAINS
   createMountainRange(3, canvas.height - 300, "#262626");
   c.fillStyle= "#000000";
   c.fillRect(0, canvas.height - groundHeight, canvas.width, groundHeight);

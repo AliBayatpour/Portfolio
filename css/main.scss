@@ -6,6 +6,7 @@
 body {
   overflow-x: hidden;
   overflow-y: scroll;
+  width: 100%;
 }
 
 @mixin box($width, $height, $backgroundColor, $borderRadius, $border...) {
@@ -34,24 +35,110 @@ $openSans: "Open Sans", sans-serif;
   color: $color;
   font-style: $style;
 }
-canvas {
-  width: 100%;
-  height: 100%;
-}
-.introduction {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  &__name {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+@mixin for-small-phone-only {
+  @media (max-width: 480px) {
+    @content;
   }
-  &__logo {
-    position: absolute;
-    top: 30px;
-    left: 20px;
+}
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
   }
 }
 
+canvas {
+  @include box(100%, 100%, null, null, null);
+}
+
+// INTRODUCTION BANNER
+.introduction {
+  @include box(100%, 100%, null, null, null);
+  position: relative;
+  &__logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+  &__text {
+    @include box(80%, auto, null, null, null);
+    position: absolute;
+    @include for-phone-only() {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  &__intro {
+    @include font($openSans, 13px, 500, null, #cfcfcf);
+    @include for-phone-only() {
+      margin: 35px 0 0 0;
+    }
+  }
+  &__adTxt {
+    @include for-phone-only() {
+      @include font($openSans, 18px, 600, null, #ffffff);
+    }
+    margin: 35px 0 0 0;
+    display: block;
+  }
+}
+// HAMBURGER BAR ICON
+.phoneMenuBar {
+  display: none;
+  @include box(45px, 40px, #f1260d, null, null);
+  position: absolute;
+  &__line {
+    @include box(80%, 0.9px, #ffffff, null, null);
+    margin: 5px 0;
+  }
+  @include for-phone-only() {
+    top: 15px;
+    right: 15px;
+    @include flex(center, center, column);
+
+  }
+}
+
+.myServicesBut {
+  @include box(100%, 45px, #f1260d, null, null);
+  @include font($openSans, 13px, 500, null, #ffffff);
+  @include flex(center, center, null);
+  margin: 40px 0 0 0;
+}
+
+.aboutMe {
+  @include box(100%, null, null, null, null);
+  @include flex(center, center, null);
+  &__img {
+    @include for-phone-only() {
+      @include box(80%, null, null, 50%, null);
+      img {
+        @include box(100%, auto, null, 50%, null);
+      }
+    }
+  }
+  &__txt {
+
+  }
+}
