@@ -133,7 +133,6 @@ backgroundGradient.addColorStop(0, "#0D0D0D");
 backgroundGradient.addColorStop(1, "#595959");
 /* Color Theme Swatches in Hex */
 
-
 let stars;
 let miniStars;
 let backgroundStars = [];
@@ -143,7 +142,7 @@ let groundHeight = 50;
 function init() {
   stars = [];
   miniStars = [];
-  backgroundStars= [];
+  backgroundStars = [];
 
   // SMALL STARS IN THE SKY
   for (let i = 0; i < 150; i++) {
@@ -165,7 +164,7 @@ animate = () => {
 
   // CREATE MOUNTAINS
   createMountainRange(3, canvas.height - 300, "#262626");
-  c.fillStyle= "#000000";
+  c.fillStyle = "#000000";
   c.fillRect(0, canvas.height - groundHeight, canvas.width, groundHeight);
   stars.forEach((star, index) => {
     star.update();
@@ -189,3 +188,28 @@ animate = () => {
 };
 init();
 animate();
+
+// DEFINING VARIABLES
+let menuDropdown = document.querySelector(".munuDropdown");
+let menuShows = false;
+menuClicked = () => {
+  if (menuShows) {
+    gsap.fromTo(".phoneMenuBar__line--midLine", { opacity: 0, margin: "0px 0px" }, { opacity: 1, margin: "5px 0px" });
+    gsap.fromTo(".phoneMenuBar__line--topLine", { margin: "0 0", rotation: 45, y:1 }, {margin: "5px 0px", rotation: 0, y:0});
+    gsap.fromTo(".phoneMenuBar__line--botLine", { margin: "0 0", rotation: -45 }, {margin: "5px 0px", rotation: 0});
+    gsap.fromTo(".munuDropdown", { x: "100%" }, { x: "0%" });
+    gsap.fromTo(".phoneMenuBar", { background: "white" }, { background: "red" });
+    gsap.fromTo(".phoneMenuBar__line", { background: "red" }, { background: "white" });
+    document.body.style.overflowY = "scroll";
+    menuShows = false;
+  } else {
+    gsap.fromTo(".phoneMenuBar__line--midLine", { opacity: 1, margin: "0px 5px" }, { opacity: 0, margin: "0px 0px" });
+    gsap.fromTo(".phoneMenuBar__line--topLine", { margin: "5px 0px", rotation: 0, y:0 }, {margin: "0 0", rotation: 45, y:1});
+    gsap.fromTo(".phoneMenuBar__line--botLine", { margin: "5px 0px", rotation: 0 }, {margin: "0 0", rotation: -45});
+    gsap.fromTo(".munuDropdown", { x: "0" }, { x: "100%" });
+    gsap.fromTo(".phoneMenuBar", { background: "red" }, { background: "white" });
+    gsap.fromTo(".phoneMenuBar__line", { background: "white" }, { background: "red" });
+    document.body.style.overflowY = "hidden";
+    menuShows = true;
+  }
+};

@@ -57,7 +57,7 @@ canvas {
 .introduction__intro {
   font-family: "Open Sans", sans-serif;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 600;
   color: #cfcfcf;
 }
 
@@ -76,7 +76,7 @@ canvas {
   .introduction__adTxt {
     font-family: "Open Sans", sans-serif;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 700;
     color: #ffffff;
   }
 }
@@ -88,6 +88,7 @@ canvas {
   background-color: #f1260d;
   border:;
   position: absolute;
+  z-index: 6;
 }
 
 .phoneMenuBar__line {
@@ -118,6 +119,54 @@ canvas {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+}
+
+.munuDropdown {
+  width: 100%;
+  height: 100vh;
+  background-color: #ffffff;
+  border:;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  z-index: 5;
+  right: 100%;
+  padding: 0 0 0 50px;
+}
+
+.munuDropdown__redLogo {
+  width: 60px;
+  border:;
+  position: absolute;
+  top: 10px;
+  left: 40px;
+}
+
+.munuDropdown__li {
+  font-family: "Open Sans", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  color: #222222;
+  list-style: none;
+  margin: 10px 0;
+}
+
+.munuDropdown__menu ul {
+  margin: 0 0 50px 0;
+}
+
+.munuDropdown a {
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  color: #f1260d;
+  margin: 0 0 10px 0;
+  display: block;
 }
 
 .myServicesBut {
@@ -186,21 +235,48 @@ canvas {
   }
 }
 
+.portfolio__workItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 0 20px 0 #e9e9e9;
+          box-shadow: 0 0 20px 0 #e9e9e9;
+}
+
 @media (max-width: 599px) {
   .portfolio__workItem {
     width: 100%;
     border:;
-    -webkit-box-shadow: 0 0 20px 0 #e9e9e9;
-            box-shadow: 0 0 20px 0 #e9e9e9;
     margin: 0 0 60px 0;
   }
 }
 
 .portfolio__img {
-  width: 100%;
-  height: auto;
-  border:;
   padding: 30px;
+}
+
+@media (max-width: 599px) {
+  .portfolio__img {
+    width: 70%;
+    height: auto;
+    border:;
+  }
+}
+
+@media (max-width: 380px) {
+  .portfolio__img {
+    width: 90%;
+    height: auto;
+    border:;
+  }
 }
 
 @media (max-width: 599px) {

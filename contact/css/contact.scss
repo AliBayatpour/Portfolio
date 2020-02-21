@@ -1,0 +1,85 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 100%;
+  }
+  
+  @mixin box($width, $height, $backgroundColor, $borderRadius, $border...) {
+    width: $width;
+    height: $height;
+    background-color: $backgroundColor;
+    border: $border;
+    border-radius: $borderRadius;
+  }
+  
+  @mixin flex($justifyContent, $alignItems, $flexDirection) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    flex-direction: $flexDirection;
+  }
+  
+  // FONTS
+  $openSans: "Open Sans", sans-serif;
+  
+  @mixin font($family, $size, $weight, $style, $color) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+    font-style: $style;
+  }
+  
+  @mixin for-extra-small-phone-only {
+    @media (max-width: 380px) {
+      @content;
+    }
+  }
+  @mixin for-small-phone-only {
+    @media (max-width: 480px) {
+      @content;
+    }
+  }
+  @mixin for-phone-only {
+    @media (max-width: 599px) {
+      @content;
+    }
+  }
+  @mixin for-tablet-portrait-up {
+    @media (min-width: 600px) {
+      @content;
+    }
+  }
+  @mixin for-tablet-landscape-up {
+    @media (min-width: 900px) {
+      @content;
+    }
+  }
+  @mixin for-desktop-up {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+  @mixin for-big-desktop-up {
+    @media (min-width: 1800px) {
+      @content;
+    }
+  }
+  .contactForm {
+      legend {
+          margin: 0 0 50px 0;
+      }
+      fieldset {
+          border: 0;
+          @include flex(null, null, column);
+      }
+      &__input {
+          margin: 0 0 50px 0;
+      }
+  }
