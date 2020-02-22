@@ -1,85 +1,108 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+@mixin box($width, $height, $backgroundColor, $borderRadius, $border...) {
+  width: $width;
+  height: $height;
+  background-color: $backgroundColor;
+  border: $border;
+  border-radius: $borderRadius;
+}
+
+@mixin flex($justifyContent, $alignItems, $flexDirection) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+  flex-direction: $flexDirection;
+}
+
+// FONTS
+$openSans: "Open Sans", sans-serif;
+
+@mixin font($family, $size, $weight, $style, $color) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+  font-style: $style;
+}
+
+@mixin for-extra-small-phone-only {
+  @media (max-width: 380px) {
+    @content;
   }
-  body {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    width: 100%;
+}
+@mixin for-small-phone-only {
+  @media (max-width: 480px) {
+    @content;
   }
-  
-  @mixin box($width, $height, $backgroundColor, $borderRadius, $border...) {
-    width: $width;
-    height: $height;
-    background-color: $backgroundColor;
-    border: $border;
-    border-radius: $borderRadius;
+}
+@mixin for-phone-only {
+  @media (max-width: 599px) {
+    @content;
   }
-  
-  @mixin flex($justifyContent, $alignItems, $flexDirection) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: $justifyContent;
-    align-items: $alignItems;
-    flex-direction: $flexDirection;
+}
+@mixin for-tablet-portrait-up {
+  @media (min-width: 600px) {
+    @content;
   }
-  
-  // FONTS
-  $openSans: "Open Sans", sans-serif;
-  
-  @mixin font($family, $size, $weight, $style, $color) {
-    font-family: $family;
-    font-size: $size;
-    font-weight: $weight;
-    color: $color;
-    font-style: $style;
+}
+@mixin for-tablet-landscape-up {
+  @media (min-width: 900px) {
+    @content;
   }
-  
-  @mixin for-extra-small-phone-only {
-    @media (max-width: 380px) {
-      @content;
+}
+@mixin for-desktop-up {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin for-big-desktop-up {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}
+.contactForm {
+  position: absolute;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  @include box(100%, auto, null, null, null);
+  legend {
+    margin: 0 0 20px 0;
+    @include font($openSans, 16px, 600, null, #ffffff);
+  }
+  label {
+    @include font($openSans, 16px, 600, null, #ffffff);
+    margin: 0 0 5px 0;
+  }
+  fieldset {
+    border: 0;
+    @include flex(null, null, column);
+  }
+  &__input {
+    @include flex(null, null, column);
+    input {
+      @include box(100%, 30px, null, null, null);
     }
   }
-  @mixin for-small-phone-only {
-    @media (max-width: 480px) {
-      @content;
+  &__textArea {
+    textarea {
+      margin: 5px 0 0 0;
+      @include box(100%, 60px, null, null, null);
     }
   }
-  @mixin for-phone-only {
-    @media (max-width: 599px) {
-      @content;
-    }
-  }
-  @mixin for-tablet-portrait-up {
-    @media (min-width: 600px) {
-      @content;
-    }
-  }
-  @mixin for-tablet-landscape-up {
-    @media (min-width: 900px) {
-      @content;
-    }
-  }
-  @mixin for-desktop-up {
-    @media (min-width: 1200px) {
-      @content;
-    }
-  }
-  @mixin for-big-desktop-up {
-    @media (min-width: 1800px) {
-      @content;
-    }
-  }
-  .contactForm {
-      legend {
-          margin: 0 0 50px 0;
-      }
-      fieldset {
-          border: 0;
-          @include flex(null, null, column);
-      }
-      &__input {
-          margin: 0 0 50px 0;
-      }
-  }
+}
+canvas {
+  @include box(100%, 100%, null, null, null);
+}
