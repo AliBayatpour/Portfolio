@@ -71,10 +71,16 @@ $openSans: "Open Sans", sans-serif;
     @content;
   }
 }
+.logo {
+  @include box(70px, auto, null, null, null);
+  position: absolute;
+  top: 10px;
+  left: 15px;
+}
 .contactForm {
   position: absolute;
   padding: 20px;
-  top: 50%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   @include box(100%, auto, null, null, null);
@@ -92,15 +98,23 @@ $openSans: "Open Sans", sans-serif;
   }
   &__input {
     @include flex(null, null, column);
+    margin: 0 0 30px 0;
     input {
-      @include box(100%, 30px, null, null, null);
+      @include box(100%, 30px, null, 2px, none);
+      padding: 0 5px;
     }
   }
   &__textArea {
     textarea {
       margin: 5px 0 0 0;
-      @include box(100%, 60px, null, null, null);
+      @include box(100%, 60px, null, 2px, null);
+      padding: 0 5px;
     }
+  }
+  &__SubmitBut {
+    @include box(80px, 30px, #ffffff, 2px, none);
+    @include font($openSans, 14px, 600, null, #000000);
+    margin: 10px 0 0 0;
   }
 }
 canvas {

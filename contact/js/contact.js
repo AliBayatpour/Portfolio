@@ -127,13 +127,13 @@ animate = () => {
   }
   ticker++;
   if (ticker % randomSpawnRate == 0) {
-    const radius = 5;
+    const radius = Math.floor((Math.random() * 4) + 1);
     let x = Math.random() * (innerWidth - radius * 2) + radius;
     let y = Math.random() * (innerHeight - radius * 2) + radius;
     let dy = (Math.random() * 1) + 2;
     let dx =( Math.random() * 1) + 10;
     commet.push(new Commet(x, y, dx, dy, radius));
-    randomSpawnRate = Math.floor(Math.random() * 100) + 75;
+    randomSpawnRate = Math.floor(Math.random() * 50) + 40;
   }
   commet.forEach((thisCommet, index) => {
     thisCommet.update();
