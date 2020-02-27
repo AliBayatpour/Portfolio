@@ -56,6 +56,13 @@ $openSans: "Open Sans", sans-serif;
     @content;
   }
 }
+
+@mixin for-additional-tablet-up {
+  @media (min-width: 750px) {
+    @content;
+  }
+}
+
 @mixin for-tablet-landscape-up {
   @media (min-width: 900px) {
     @content;
@@ -81,40 +88,74 @@ canvas {
   @include box(100%, 100%, null, null, null);
   position: relative;
   &__logo {
-    @include box(70px, auto, null, null, null);
     position: absolute;
-    top: 10px;
-    left: 15px;
+    @include for-phone-only() {
+      @include box(70px, auto, null, null, null);
+      top: 10px;
+      left: 15px;
+    }
+    @include for-tablet-portrait-up() {
+      @include box(70px, auto, null, null, null);
+      top: 10px;
+      left: 15px;
+    }
+    @include for-tablet-landscape-up() {
+      @include box(80px, auto, null, null, null);
+    }
+
     img {
       @include box(100%, null, null, null, null);
     }
   }
   &__text {
-    @include box(80%, auto, null, null, null);
     position: absolute;
     @include for-phone-only() {
+      @include box(80%, auto, null, null, null);
       top: 55%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
+    @include for-tablet-portrait-up() {
+      @include box(80%, auto, null, null, null);
+      @include flex(null, center, null);
+      top: 55%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    @include for-tablet-landscape-up() {
+      top: 50%;
+    }
   }
   &__intro {
-    @include font($openSans, 13px, 600, null, #cfcfcf);
     @include for-phone-only() {
+      @include font($openSans, 12px, 600, null, #cfcfcf);
+      margin: 35px 0 0 0;
+    }
+    @include for-tablet-portrait-up() {
+      @include font($openSans, 15px, 600, null, #cfcfcf);
+      @include box(100%, null, null, null, null);
       margin: 35px 0 0 0;
     }
   }
   &__adTxt {
-    @include for-phone-only() {
-      @include font($openSans, 18px, 700, null, #ffffff);
-    }
-    margin: 35px 0 0 0;
     display: block;
+    margin: 35px 0 0 0;
+    @include for-extra-small-phone-only() {
+      @include font($openSans, 22px, 700, null, #ffffff);
+    }
+    @include for-phone-only() {
+      @include font($openSans, 25px, 700, null, #ffffff);
+    }
+    @include for-tablet-portrait-up() {
+      @include font($openSans, 35px, 700, null, #ffffff);
+    }
+    @include for-tablet-landscape-up() {
+      @include font(null, 40px, null, null, null);
+    }
   }
 }
 // HAMBURGER BAR ICON
 .phoneMenuBar {
-  display: none;
   @include box(45px, 40px, #f1260d, null, null);
   position: absolute;
   z-index: 6;
@@ -127,26 +168,64 @@ canvas {
     right: 15px;
     @include flex(center, center, column);
   }
+  @include for-tablet-portrait-up() {
+    top: 15px;
+    right: 15px;
+    @include flex(center, center, column);
+  }
+  @include for-tablet-landscape-up() {
+    display: none;
+  }
 }
 
 .munuDropdown {
-  @include box(100%, 100vh, #ffffff, null, null);
+  @include box(100%, 100%, transparent null, null);
   @include flex(null, center, null);
   position: fixed;
   z-index: 5;
-  right: 100%;
-  padding: 0 0 0 50px;
+  right: -100%;
+  &__blackBox {
+    overflow: hidden;
+    position: relative;
+    @include for-phone-only() {
+      display: none;
+    }
+    @include for-tablet-portrait-up() {
+      display: flex;
+      @include box(45%, 100%, transparent, null, null);
+    }
+  }
+  &__coverLayer {
+    @include box(100%, 100%, rgba(0, 0, 0, 0.8), null, null);
+    position: absolute;
+    right: -100%;
+
+  }
   &__li {
     @include font($openSans, 25px, 600, null, #222222);
     list-style: none;
     margin: 10px 0;
+    &--contact {
+      a {
+        text-decoration: none;
+        @include font($openSans, 25px, 600, null, #222222);
+      }
+    }
   }
   &__menu {
+    @include flex(center, null, column);
+    padding: 0 0 0 50px;
+    @include for-phone-only() {
+      @include box(100%, 100%, #ffffff, null, null);
+    }
+    @include for-tablet-portrait-up() {
+      @include box(55%, 100%, #ffffff, null, null);
+    }
     ul {
       margin: 0 0 50px 0;
     }
   }
-  a {
+  &__addInfo {
     @include font($openSans, 15px, null, null, #f1260d);
     margin: 0 0 10px 0;
     display: block;
@@ -154,10 +233,17 @@ canvas {
 }
 
 .myServicesBut {
-  @include box(100%, 45px, #f1260d, null, null);
-  @include font($openSans, 13px, 500, null, #ffffff);
   @include flex(center, center, null);
-  margin: 40px 0 0 0;
+  @include for-phone-only() {
+    @include box(100%, 45px, #f1260d, null, null);
+    @include font($openSans, 13px, 500, null, #ffffff);
+    margin: 40px 0 0 0;
+  }
+  @include for-tablet-portrait-up() {
+    @include box(280px, 45px, #f1260d, null, null);
+    @include font($openSans, 14px, 500, null, #ffffff);
+    margin: 40px 0 0 0;
+  }
 }
 
 .portfolio {
@@ -165,9 +251,21 @@ canvas {
   @include for-phone-only() {
     padding: 100px 0 0 0;
   }
+  @include for-tablet-portrait-up() {
+    padding: 100px 0 0 0;
+  }
+  @include for-additional-tablet-up() {
+    @include flex(null, null, row);
+  }
   &__container {
     @include for-phone-only() {
+      padding: 0 20px;
+    }
+    @include for-tablet-portrait-up() {
       padding: 0 50px;
+    }
+    @include for-additional-tablet-up() {
+      @include flex(null, null, row);
     }
   }
   &__header {
@@ -175,9 +273,16 @@ canvas {
       @include box(100%, null, null, null, null);
       margin: 0 0 10px 0;
     }
+    @include for-tablet-portrait-up() {
+      @include box(100%, null, null, null, null);
+      margin: 0 0 10px 0;
+    }
     h1 {
       @include for-phone-only() {
         @include font($openSans, 28px, 600, null, #121212);
+      }
+      @include for-tablet-portrait-up() {
+        @include font($openSans, 30px, 600, null, #121212);
       }
     }
   }
@@ -186,82 +291,208 @@ canvas {
       @include font($openSans, 14px, null, null, #555555);
       margin: 0 0 50px 0;
     }
+    @include for-tablet-portrait-up() {
+      @include box(100%, null, null, null, null);
+      @include font($openSans, 15px, null, null, #555555);
+      margin: 0 0 50px 0;
+    }
   }
   &__workItem {
     @include flex(center, center, null);
-    box-shadow: 0 0 20px 0 #e9e9e9;
+    box-shadow: 0 0 20px 0 #d6d6d6;
+    cursor: pointer;
     @include for-phone-only() {
       @include box(100%, null, null, null, null);
       margin: 0 0 60px 0;
+    }
+    @include for-tablet-portrait-up() {
+      @include box(100%, null, null, null, null);
+      margin: 0 0 60px 0;
+    }
+    @include for-additional-tablet-up() {
+      @include box(45%, null, null, null, null);
+      margin: 0 15px 60px 15px;
     }
   }
   &__img {
-    @include for-phone-only() {
-      @include box(70%, auto, null, null, null);
+    padding: 15px;
+    &--realState {
+      @include for-tablet-portrait-up() {
+        @include box(60%, null, null, null, null);
+      }
+      @include for-phone-only() {
+        @include box(70%, null, null, null, null);
+      }
+      @include for-extra-small-phone-only() {
+        @include box(90%, null, null, null, null);
+      }
+      @include for-additional-tablet-up() {
+        @include box(90%, null, null, null, null);
+      }
+      @include for-desktop-up() {
+        @include box(80%, null, null, null, null);
+      }
     }
-    @include for-extra-small-phone-only() {
-      @include box(90%, auto, null, null, null);
+    &--restaurant {
+      @include for-tablet-portrait-up() {
+        @include box(50%, null, null, null, null);
+      }
+      @include for-phone-only() {
+        @include box(50%, null, null, null, null);
+      }
+      @include for-extra-small-phone-only() {
+        @include box(80%, null, null, null, null);
+      }
+      @include for-additional-tablet-up() {
+        @include box(70%, null, null, null, null);
+      }
+      @include for-tablet-landscape-up() {
+        @include box(60%, null, null, null, null);
+      }
+      @include for-desktop-up() {
+        @include box(50%, null, null, null, null);
+      }
     }
-    padding: 30px;
   }
   &__ad {
+    background: 
+    /* On "top" */ repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 5px,
+      rgba(204, 204, 204, 0.5) 5px,
+      rgba(204, 204, 204, 0.5) 6px
+    );
+    @include flex(center, center, null);
+    margin: 0 0 60px 0;
+    padding: 5px 10px;
     @include for-phone-only() {
       @include box(100%, null, null, null, null);
-      margin: 0 0 60px 0;
-      padding: 5px 10px;
-      background: 
-      /* On "top" */ repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 5px,
-        rgba(204, 204, 204, 0.5) 5px,
-        rgba(204, 204, 204, 0.5) 6px
-      );
+    }
+    @include for-tablet-portrait-up() {
+      @include box(100%, null, null, null, null);
+    }
+    @include for-additional-tablet-up() {
+      @include box(45%, 280px, null, null, null);
+      margin: 0 15px 60px 15px;
     }
   }
   &__adHeader {
+    @include box(100%, null, null, null, null);
+    margin: 0 0 21px 0;
+    @include for-tablet-portrait-up() {
+      @include font($openSans, 30px, 600, null, #000000);
+    }
     @include for-phone-only() {
       @include font($openSans, 30px, 600, null, #000000);
-      margin: 0 0 21px 0;
     }
   }
   &__adPara {
-    @include font($openSans, 13px, 500, null, #000000);
-    margin: 0 0 21px 0;
+    @include box(100%, null, null, null, null);
+    @include for-tablet-portrait-up() {
+      @include font($openSans, 15px, 500, null, #000000);
+      margin: 0 0 21px 0;
+    }
+    @include for-phone-only() {
+      @include font($openSans, 14px, 500, null, #000000);
+      margin: 0 0 21px 0;
+    }
   }
   &__adTalkToHuman {
-    @include box(100%, 45px, #f1260d, null, null);
-    @include font($openSans, 14px, 500, null, #ffffff);
-    @include flex(center, center, null);
-    margin: 0 0 5px 0;
+    @include for-tablet-portrait-up() {
+      @include box(50%, 45px, #f1260d, null, null);
+      @include font($openSans, 14px, 500, null, #ffffff);
+      @include flex(center, center, null);
+      margin: 0 0 5px 0;
+    }
+    @include for-phone-only() {
+      @include box(100%, 45px, #f1260d, null, null);
+      @include font($openSans, 14px, 500, null, #ffffff);
+      @include flex(center, center, null);
+      margin: 0 0 5px 0;
+    }
   }
 }
 .praising {
-  @include box(100%, null, #f1260d, null, null);
-  padding: 10px 50px;
+  @include for-phone-only() {
+    @include box(100%, null, #f1260d, null, null);
+    padding: 10px 50px;
+  }
+  @include for-tablet-portrait-up() {
+    @include flex(center, center, null);
+    @include box(100%, 100vh, #f1260d, null, null);
+    padding: 10px 50px;
+  }
   &__txt {
     @include for-phone-only() {
       @include font($openSans, 28px, null, null, #ffffff);
     }
+    @include for-tablet-portrait-up() {
+      @include font($openSans, 40px, null, null, #ffffff);
+    }
+    @include for-tablet-landscape-up() {
+      @include font($openSans, 50px, null, null, #ffffff);
+    }
+  }
+  &__botton {
+    @include box(80%, 45px, #f1260d, null, null);
+    @include flex(null, center, null);
+    @include font($openSans, 14px, 600, null, #ffffff);
+    cursor: pointer;
+    @include for-tablet-portrait-up() {
+      @include box(240px, 45px, #f1260d, null, null);
+      margin: 0 auto 0 0;
+    }
+    i {
+      @include font(null, 18px, 600, null, #ffffff);
+      margin: 0 0 0 auto;
+    }
   }
 }
 .secAd {
+  @include box(100%, null, null, null, null);
+  @include for-tablet-portrait-up() {
+    @include flex(center, center, column);
+    padding: 100px 50px;
+  }
   @include for-phone-only() {
     padding: 100px 50px;
   }
   &__preHeader {
+    @include box(100%, null, null, null, null);
+    @include for-tablet-portrait-up() {
+      @include font($openSans, 15px, null, null, #f1260d);
+      margin: 0 0 30px 0;
+    }
     @include for-phone-only() {
       @include font($openSans, 14px, null, null, #f1260d);
       margin: 0 0 30px 0;
     }
   }
   &__header {
+    @include box(100%, null, null, null, null);
     @include for-phone-only() {
       @include font($openSans, 28px, null, null, #000000);
       margin: 0 0 50px 0;
     }
+    @include for-tablet-portrait-up() {
+      @include box(70%, null, null, null, null);
+      @include font($openSans, 50px, null, null, #000000);
+      margin: 0 auto 50px 0;
+
+    }
+    @include for-tablet-landscape-up() {
+      @include font($openSans, 60px, null, null, #000000);
+    }
   }
   &__meet {
+    @include for-tablet-portrait-up() {
+      @include box(280px, 45px, #f1260d, null, null);
+      @include font($openSans, 14px, 500, null, #ffffff);
+      @include flex(center, center, null);
+      margin: 0 auto 5px 0;
+      cursor: pointer;
+    }
     @include for-phone-only() {
       @include box(100%, 45px, #f1260d, null, null);
       @include font($openSans, 14px, 500, null, #ffffff);
@@ -271,22 +502,38 @@ canvas {
   }
 }
 .footer {
-  @include box(100%, null, #0a0a0a, null, null);
+  @include for-tablet-portrait-up() {
+    @include box(100%, null, #0a0a0a, null, null);
+    padding: 100px 50px;
+  }
   @include for-phone-only() {
+    @include box(100%, null, #0a0a0a, null, null);
     padding: 100px 50px;
   }
   &__aboutMe {
-    @include box(100%, null, null, null, null);
+    @include for-tablet-portrait-up() {
+      @include box(100%, null, null, null, null);
+      margin: 0 0 30px 0;
+    }
     @include for-phone-only() {
+      @include box(100%, null, null, null, null);
       margin: 0 0 30px 0;
     }
     h1 {
+      @include for-tablet-portrait-up() {
+        @include font($openSans, 30px, null, null, #ffffff);
+        margin: 0 0 45px 0;
+      }
       @include for-phone-only() {
         @include font($openSans, 28px, null, null, #ffffff);
         margin: 0 0 45px 0;
       }
     }
     p {
+      @include for-tablet-portrait-up() {
+        @include font($openSans, 14px, null, null, #cfcfcf);
+        line-height: 28px;
+      }
       @include for-phone-only() {
         @include font($openSans, 13.5px, null, null, #cfcfcf);
         line-height: 28px;
@@ -294,26 +541,43 @@ canvas {
     }
   }
   &__socialMedia {
-    @include for-phone-only() {
-      margin: 0 0 50px 0;
-      a {
-        text-decoration: none;
+    margin: 0 0 50px 0;
+    a {
+      text-decoration: none;
+    }
+    i {
+      margin: 0 10px 0 0;
+      @include for-tablet-portrait-up() {
+        @include font(null, 26px, null, null, #ffffff);
       }
-      i {
+      @include for-phone-only() {
         @include font(null, 25px, null, null, #ffffff);
-        margin: 0 10px 0 0;
       }
     }
   }
   &__contact {
-    margin: 0 0 30px 0;
+    @include for-tablet-portrait-up() {
+      margin: 0 0 30px 0;
+    }
+    @include for-phone-only() {
+      margin: 0 0 30px 0;
+    }
     h4 {
+      @include for-tablet-portrait-up() {
+        @include font($openSans, 17px, 500, null, #ffffff);
+        margin: 0 0 20px 0;
+      }
       @include for-phone-only() {
         @include font($openSans, 15px, 500, null, #ffffff);
         margin: 0 0 20px 0;
       }
     }
     a {
+      @include for-tablet-portrait-up() {
+        @include font($openSans, 16px, null, null, #f1260d);
+        margin: 0 0 10px 0;
+        display: block;
+      }
       @include for-phone-only() {
         @include font($openSans, 15px, null, null, #f1260d);
         margin: 0 0 10px 0;
@@ -322,6 +586,9 @@ canvas {
     }
   }
   &__copyright {
+    @include for-tablet-portrait-up() {
+      @include font($openSans, 12px, null, null, #cfcfcf);
+    }
     @include for-phone-only() {
       @include font($openSans, 12px, null, null, #cfcfcf);
     }

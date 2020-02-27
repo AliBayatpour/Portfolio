@@ -13,19 +13,21 @@
   </head>
   <body>
     <div class="munuDropdown">
+      <div class="munuDropdown__blackBox"><div class="munuDropdown__coverLayer"></div></div>
       <div class="munuDropdown__menu">
         <ul>
           <li class="munuDropdown__li">HOME</li>
           <li class="munuDropdown__li">SERVICE</li>
           <li class="munuDropdown__li">PORTFOLIO</li>
-          <li class="munuDropdown__li">CONTACT</li>
+          <li class="munuDropdown__li munuDropdown__li--contact"><a href="./contact/contact.html">CONTACT</a></li>
         </ul>
         <a
+        class="munuDropdown__addInfo"
           href="mailto:aliglbayatpour@gmail.com?Subject=Hello%20again"
           target="_top"
           >ALIGLBAYATPOUR@GMAIL.COM</a
         >
-        <a href="tel:+37256193750">+372-561-937-50</a>
+        <a class="munuDropdown__addInfo" href="tel:+37256193750">+372-561-937-50</a>
       </div>
     </div>
     <div class="introduction">
@@ -55,7 +57,7 @@
           <img
             src="./assets/realEstateTabletFrame.png"
             alt="Ali bayatpour portfolio1"
-            class="portfolio__img"
+            class="portfolio__img portfolio__img--realState"
           />
         </div>
         <div class="portfolio__ad">
@@ -71,7 +73,7 @@
           <img
             src="./assets/restaurantMobileFrame.png"
             alt="Ali bayatpour portfolio2"
-            class="portfolio__img"
+            class="portfolio__img portfolio__img--restaurant"
           />
         </div>
       </div>
@@ -81,6 +83,7 @@
         I'm a Hard Working Creative, Problem Solver and forward-thinker that
         pushes boundaries for ground breaking results.
       </h3>
+      <div class="praising__botton" onmouseenter= "movingArrow()" onmouseleave="stopArrow()" >GET COFFEE  <i class='fas fa-arrow-right'></i></span></div>
     </div>
     <div class="secAd">
       <div class="secAd__preHeader">Lets work together</div>

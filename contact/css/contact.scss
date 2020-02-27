@@ -56,6 +56,11 @@ $openSans: "Open Sans", sans-serif;
     @content;
   }
 }
+@mixin for-additional-tablet-up {
+  @media (min-width: 750px) {
+    @content;
+  }
+}
 @mixin for-tablet-landscape-up {
   @media (min-width: 900px) {
     @content;
@@ -83,7 +88,21 @@ $openSans: "Open Sans", sans-serif;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  @include box(100%, auto, null, null, null);
+  @include for-phone-only() {
+    @include box(320px, auto, null, null, null);
+  }
+  @include for-extra-small-phone-only() {
+    @include box(100%, auto, null, null, null);
+  }
+  @include for-tablet-portrait-up() {
+    @include box(400px, auto, null, null, null);
+  }
+  @include for-additional-tablet-up() {
+    @include box(50%, auto, null, null, null);
+  }
+  @include for-tablet-landscape-up() {
+    @include box(500px, auto, null, null, null);
+  }
   legend {
     margin: 0 0 20px 0;
     @include font($openSans, 16px, 600, null, #ffffff);
@@ -98,23 +117,34 @@ $openSans: "Open Sans", sans-serif;
   }
   &__input {
     @include flex(null, null, column);
-    margin: 0 0 30px 0;
+    @include for-phone-only() {
+      margin: 0 0 20px 0;
+    }
+    @include for-tablet-portrait-up() {
+      margin: 0 0 30px 0;
+    }
     input {
       @include box(100%, 30px, null, 2px, none);
       padding: 0 5px;
     }
   }
   &__textArea {
+    @include flex(null, null, column);
     textarea {
       margin: 5px 0 0 0;
-      @include box(100%, 60px, null, 2px, null);
+      @include for-phone-only() {
+        @include box(100%, 70px, null, 2px, null);
+      }
+      @include for-tablet-portrait-up() {
+        @include box(100%, 100px, null, 2px, null);
+      }
       padding: 0 5px;
     }
   }
   &__SubmitBut {
     @include box(80px, 30px, #ffffff, 2px, none);
     @include font($openSans, 14px, 600, null, #000000);
-    margin: 10px 0 0 0;
+    margin: 20px 0 0 0;
   }
 }
 canvas {
