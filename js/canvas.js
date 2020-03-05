@@ -1,12 +1,10 @@
+//INITIALIZING PAGE TRANSITION SWUP
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 randomIntFromRange = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
 
-// randomColor = colors => {
-//   return colors[Math.floor(Math.random() * colors.length)];
-// };
 
 distance = (x1, y1, x2, y2) => {
   const xDist = x2 - x1;
@@ -17,8 +15,6 @@ distance = (x1, y1, x2, y2) => {
 
 canvas.width = innerWidth;
 canvas.height = innerHeight;
-
-// const colors = ["#2185C5", "#7ECEFD", "#FFF6E5", "#FF7F66"];
 
 addEventListener("resize", () => {
   canvas.width = innerWidth;
@@ -131,8 +127,8 @@ function createMountainRange(mountainAmount, height, color) {
 const backgroundGradient = c.createLinearGradient(0, 0, 0, canvas.height);
 backgroundGradient.addColorStop(0, "#0D0D0D");
 backgroundGradient.addColorStop(1, "#595959");
-/* Color Theme Swatches in Hex */
 
+/* Color Theme Swatches in Hex */
 let stars;
 let miniStars;
 let backgroundStars = [];
@@ -192,6 +188,8 @@ animate();
 // DEFINING VARIABLES
 let menuDropdown = document.querySelector(".munuDropdown");
 let menuShows = false;
+let hamburgerMenuBackground = "#f1260d";
+
 menuClicked = () => {
   if (menuShows) {
     gsap.fromTo(
@@ -210,15 +208,15 @@ menuClicked = () => {
       { margin: "5px 0px", rotation: 0 }
     );
     gsap.fromTo(".munuDropdown__coverLayer", { x: "-100%" }, { x: "0%" });
-    gsap.fromTo(".munuDropdown", { x: "-100%" }, { x: "0%", delay: 0.5});
+    gsap.fromTo(".munuDropdown", { x: "-100%" }, { x: "0%", delay: 0.5 });
     gsap.fromTo(
       ".phoneMenuBar",
       { background: "white" },
-      { background: "red" }
+      { background: hamburgerMenuBackground }
     );
     gsap.fromTo(
       ".phoneMenuBar__line",
-      { background: "red" },
+      { background: hamburgerMenuBackground },
       { background: "white" }
     );
     document.body.style.overflowY = "scroll";
@@ -240,16 +238,20 @@ menuClicked = () => {
       { margin: "0 0", rotation: -45 }
     );
     gsap.fromTo(".munuDropdown", { x: "0" }, { x: "-100%" });
-    gsap.fromTo(".munuDropdown__coverLayer", { x: "0%" }, { x: "-100%", delay: 0.5 });
+    gsap.fromTo(
+      ".munuDropdown__coverLayer",
+      { x: "0%" },
+      { x: "-100%", delay: 0.5 }
+    );
     gsap.fromTo(
       ".phoneMenuBar",
-      { background: "red" },
+      { background: hamburgerMenuBackground },
       { background: "white" }
     );
     gsap.fromTo(
       ".phoneMenuBar__line",
       { background: "white" },
-      { background: "red" }
+      { background: hamburgerMenuBackground }
     );
     document.body.style.overflowY = "hidden";
     menuShows = true;
@@ -257,11 +259,166 @@ menuClicked = () => {
 };
 
 // MOVING ARROW
-let movArrowTl = gsap.timeline({repeat: -1, yoyo: true, paused: true});
-movArrowTl.fromTo(".fa-arrow-right",0.5, {x:0}, {x: 30,ease: "power2.in"})
+let movArrowTl = gsap.timeline({ repeat: -1, yoyo: true, paused: true });
+movArrowTl.fromTo(
+  ".fa-arrow-right",
+  0.5,
+  { x: 0 },
+  { x: 30, ease: "power2.in" }
+);
 movingArrow = () => {
   movArrowTl.resume();
 };
 stopArrow = () => {
   movArrowTl.pause();
-}
+};
+// SHOWING AND HIDING THE MENUE BASED ON SCROLL PROSITION
+let mainNav = document.querySelector(".mainNav");
+let bookAppointment = document.querySelector(".navContainer__bookAppointment");
+let introduction = document.querySelector(".introduction");
+let phoneMenuBar = document.querySelector(".phoneMenuBar");
+const options = {
+  root: null,
+  threshold: 0.95
+};
+const observer = new IntersectionObserver((entries, observer) => {
+  if (window.matchMedia("(min-width: 750px)").matches) {
+    gsap.to(".navContainer__logo", 0.5, { opacity: 1 });
+
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        gsap.fromTo(
+          `.${mainNav.classList[0]}`,
+          0.5,
+          { opacity: 1 },
+          { opacity: 0 }
+        );
+        gsap.fromTo(
+          `.${phoneMenuBar.classList[0]}`,
+          0.5,
+          { width: "0px" },
+          { width: "45px" }
+        );
+        gsap.fromTo(
+          `.${bookAppointment.classList[0]}`,
+          0.5,
+          { opacity: 1 },
+          { opacity: 0 }
+        );
+      } else {
+        gsap.fromTo(
+          `.${mainNav.classList[0]}`,
+          0.5,
+          { opacity: 0 },
+          { opacity: 1 }
+        );
+        gsap.fromTo(
+          `.${phoneMenuBar.classList[0]}`,
+          0.5,
+          { width: "45px" },
+          { width: "0px" }
+        );
+        gsap.fromTo(
+          `.${bookAppointment.classList[0]}`,
+          0.5,
+          { opacity: 0 },
+          { opacity: 1 }
+        );
+      }
+    });
+  } else {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        gsap.fromTo(".navContainer__logo", 0.5, { opacity: 1 }, { opacity: 0 });
+      } else {
+        gsap.fromTo(".navContainer__logo", 0.5, { opacity: 0 }, { opacity: 1 });
+      }
+    });
+  }
+}, options);
+observer.observe(introduction);
+
+let oal = document.querySelectorAll(".navContainer__logo svg");
+let hamburgerMenu = document.querySelector(".phoneMenuBar");
+// CONTROL COLOR OF LOGO AND HAMBURGER MENU
+let sections = document.querySelectorAll(".section");
+const sectionOptions = {
+  root: null,
+  threshold: 0,
+  rootMargin: "0px 0px -98% 0px"
+};
+const sectionObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      switch (entry.target.classList[0]) {
+        case "introduction":
+          oal[0].style.stroke = "#ffffff";
+          oal[1].style.fill = "#ffffff";
+          break;
+        case "praising":
+          hamburgerMenu.style.background = "#000000";
+          hamburgerMenuBackground = "#000000";
+          break;
+        case "portfolio":
+          oal[0].style.stroke = "#000000";
+          oal[1].style.fill = "#000000";
+          hamburgerMenu.style.background = "#f1260d";
+          hamburgerMenuBackground = "#f1260d";
+          break;
+        case "secAd":
+          oal[0].style.stroke = "#000000";
+          oal[1].style.fill = "#000000";
+          hamburgerMenu.style.background = "#f1260d";
+          hamburgerMenuBackground = "#f1260d";
+          break;
+        case "footer":
+          oal[0].style.stroke = "#ffffff";
+          oal[1].style.fill = "#ffffff";
+          break;
+
+        default:
+          break;
+      }
+    } else {
+    }
+  });
+}, sectionOptions);
+
+sections.forEach(sec => {
+  sectionObserver.observe(sec);
+});
+
+// LAZY LOADING IMAGES
+preloadImage = img => {
+  const src = img.getAttribute("data-src");
+  if (!src) {
+    return;
+  }
+  img.src = src;
+  gsap.fromTo(`.${img.classList[1]}`, { opacity: 0 }, { opacity: 1 });
+};
+const images = document.querySelectorAll("[data-src]");
+const imgOptions = {
+  threshold: 0,
+  rootMargin: "-400px 0px 0px 0px"
+};
+const imgObserver = new IntersectionObserver((entries, imgObserver) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) {
+      return;
+    } else {
+      preloadImage(entry.target);
+      imgObserver.unobserve(entry.target);
+    }
+  });
+}, imgOptions);
+
+images.forEach(image => {
+  imgObserver.observe(image);
+});
+
+// let oal = document.querySelectorAll(".navContainer__oalSvg path");
+// console.log(oal);
+// oal.forEach((elem, index) => {
+//   console.log(`this is path ${index} and length is ${elem.getTotalLength()}`);
+// });

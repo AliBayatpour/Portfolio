@@ -78,7 +78,230 @@ $openSans: "Open Sans", sans-serif;
     @content;
   }
 }
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
 
+// NAVIGATION
+.navContainer {
+  position: fixed;
+  @include box(100%, 100px, transparent null, null);
+  z-index: 7;
+  @include flex(null, center, row);
+  flex-wrap: nowrap;
+  @include for-phone-only() {
+    padding: 0 30px;
+  }
+  @include for-extra-small-phone-only() {
+    padding: 0 20px;
+  }
+  @include for-tablet-portrait-up() {
+    padding: 0 30px;
+  }
+  &__logo {
+    @include flex(center, center, column);
+    flex-wrap: nowrap;
+    @include for-phone-only() {
+      @include box(80px, auto, null, null, null);
+    }
+    @include for-tablet-portrait-up() {
+      @include box(80px, auto, null, null, null);
+    }
+    @include for-tablet-landscape-up() {
+      @include box(80px, auto, null, null, null);
+    }
+  }
+  @include keyframes(oal-anim) {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  &__oalSvg {
+    stroke: #ffffff;
+    width: 40px;
+    // path:nth-child(9) {
+    //   stroke-dasharray: 206.55508px;
+    //   stroke-dashoffset: 206.55508px;
+    //   animation: oal-anim 4s ease infinite alternate;
+    // }
+    path:nth-child(10) {
+      stroke-dasharray: 41.65922164916992px;
+      stroke-dashoffset: 41.65922164916992px;
+      animation: oal-anim 1s ease infinite alternate;
+    }
+    // path:nth-child(12) {
+    //   stroke-dasharray: 208.582595825px;
+    //   stroke-dashoffset: 208.582595825px;
+    //   animation: oal-anim 4s ease infinite alternate;
+    // }
+    path:last-child {
+      stroke-dasharray: 41.659217834472656;
+      stroke-dashoffset: 41.659217834472656;
+      animation: oal-anim 1s ease infinite alternate;
+    }
+  }
+  &__nameSvg {
+    width: 70px;
+    fill: white;
+  }
+  // MAIN NAVIGATION BAR
+  .mainNav {
+    @include for-phone-only() {
+      display: none;
+    }
+    @include for-tablet-portrait-up() {
+      display: none;
+    }
+    @include for-tablet-landscape-up() {
+      display: block;
+      margin: 0 0 0 5%;
+    }
+    ul {
+      @include flex(null, null, row);
+      li {
+        list-style: none;
+        a {
+          @include font($openSans, 15px, 600, null, #ffffff);
+          text-decoration: none;
+          padding: 0 15px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  // HAMBURGER BAR ICON
+  .phoneMenuBar {
+    cursor: pointer;
+    @include box(45px, 40px, #f1260d, null, null);
+    z-index: 6;
+    &__line {
+      @include box(80%, 0.9px, #ffffff, null, null);
+      margin: 5px 0;
+    }
+    @include for-phone-only() {
+      top: 15px;
+      right: 15px;
+      @include flex(center, center, column);
+      margin: 0 0 0 auto;
+      min-width: 45px;
+    }
+    @include for-tablet-portrait-up() {
+      min-width: 45px;
+      top: 15px;
+      right: 15px;
+      @include flex(center, center, column);
+      margin: 0 0 0 auto;
+    }
+    @include for-additional-tablet-up() {
+      min-width: auto;
+      margin: 0 0 0 0;
+      width: 40px;
+    }
+  }
+  &__bookAppointment {
+    @include for-phone-only() {
+      display: none;
+    }
+    @include for-tablet-portrait-up() {
+      display: none;
+    }
+    @include for-additional-tablet-up() {
+      display: block;
+      margin: 0 20px 0 auto;
+    }
+    a {
+      @include for-tablet-portrait-up() {
+        @include font($openSans, 15px, 600, null, #ffffff);
+        text-decoration-color: #f1260d;
+      }
+    }
+  }
+}
+
+// HAMBURGER BAR ICON
+.phoneMenuBar {
+  @include box(45px, 40px, #f1260d, null, null);
+  z-index: 6;
+  &__line {
+    @include box(80%, 0.9px, #ffffff, null, null);
+    margin: 5px 0;
+  }
+  @include for-phone-only() {
+    @include flex(center, center, column);
+    margin: 0 0 0 auto;
+  }
+  @include for-tablet-portrait-up() {
+    @include flex(center, center, column);
+    margin: 0 0 0 auto;
+  }
+  @include for-additional-tablet-up() {
+    margin: 0;
+  }
+}
+
+.munuDropdown {
+  @include box(100%, 100%, transparent null, null);
+  @include flex(null, center, null);
+  position: fixed;
+  z-index: 5;
+  right: -100%;
+  &__blackBox {
+    overflow: hidden;
+    position: relative;
+    @include for-phone-only() {
+      display: none;
+    }
+    @include for-tablet-portrait-up() {
+      display: flex;
+      @include box(45%, 100%, transparent, null, null);
+    }
+  }
+  &__coverLayer {
+    @include box(100%, 100%, rgba(0, 0, 0, 0.8), null, null);
+    position: absolute;
+    right: -100%;
+  }
+  &__li {
+    @include font($openSans, 25px, 600, null, #222222);
+    list-style: none;
+    margin: 10px 0;
+    &--contact {
+      a {
+        text-decoration: none;
+        @include font($openSans, 25px, 600, null, #222222);
+      }
+    }
+  }
+  &__menu {
+    @include flex(center, null, column);
+    padding: 0 0 0 50px;
+    @include for-phone-only() {
+      @include box(100%, 100%, #ffffff, null, null);
+    }
+    @include for-tablet-portrait-up() {
+      @include box(55%, 100%, #ffffff, null, null);
+    }
+    ul {
+      margin: 0 0 50px 0;
+    }
+  }
+  &__addInfo {
+    @include font($openSans, 15px, null, null, #f1260d);
+    margin: 0 0 10px 0;
+    display: block;
+  }
+}
+
+// STAR SHOWER CANVAS
 canvas {
   @include box(100%, 100%, null, null, null);
 }
@@ -87,26 +310,6 @@ canvas {
 .introduction {
   @include box(100%, 100%, null, null, null);
   position: relative;
-  &__logo {
-    position: absolute;
-    @include for-phone-only() {
-      @include box(70px, auto, null, null, null);
-      top: 10px;
-      left: 15px;
-    }
-    @include for-tablet-portrait-up() {
-      @include box(70px, auto, null, null, null);
-      top: 10px;
-      left: 15px;
-    }
-    @include for-tablet-landscape-up() {
-      @include box(80px, auto, null, null, null);
-    }
-
-    img {
-      @include box(100%, null, null, null, null);
-    }
-  }
   &__text {
     position: absolute;
     @include for-phone-only() {
@@ -140,41 +343,21 @@ canvas {
   &__adTxt {
     display: block;
     margin: 35px 0 0 0;
-    @include for-extra-small-phone-only() {
-      @include font($openSans, 22px, 700, null, #ffffff);
-    }
     @include for-phone-only() {
       @include font($openSans, 25px, 700, null, #ffffff);
+    }
+    @include for-extra-small-phone-only() {
+      @include font($openSans, 22px, 700, null, #ffffff);
     }
     @include for-tablet-portrait-up() {
       @include font($openSans, 35px, 700, null, #ffffff);
     }
     @include for-tablet-landscape-up() {
-      @include font(null, 40px, null, null, null);
+      @include font(null, 45px, null, null, null);
     }
-  }
-}
-// HAMBURGER BAR ICON
-.phoneMenuBar {
-  @include box(45px, 40px, #f1260d, null, null);
-  position: absolute;
-  z-index: 6;
-  &__line {
-    @include box(80%, 0.9px, #ffffff, null, null);
-    margin: 5px 0;
-  }
-  @include for-phone-only() {
-    top: 15px;
-    right: 15px;
-    @include flex(center, center, column);
-  }
-  @include for-tablet-portrait-up() {
-    top: 15px;
-    right: 15px;
-    @include flex(center, center, column);
-  }
-  @include for-tablet-landscape-up() {
-    display: none;
+    @include for-desktop-up() {
+      @include font(null, 50px, null, null, null); 
+    }
   }
 }
 
@@ -199,7 +382,6 @@ canvas {
     @include box(100%, 100%, rgba(0, 0, 0, 0.8), null, null);
     position: absolute;
     right: -100%;
-
   }
   &__li {
     @include font($openSans, 25px, 600, null, #222222);
@@ -259,7 +441,7 @@ canvas {
   }
   &__container {
     @include for-phone-only() {
-      padding: 0 20px;
+      padding: 0 40px;
     }
     @include for-tablet-portrait-up() {
       padding: 0 50px;
@@ -316,21 +498,25 @@ canvas {
   }
   &__img {
     padding: 15px;
+    opacity: 0;
+    min-width: 50px;
+    min-height: 150px;
     &--realState {
       @include for-tablet-portrait-up() {
-        @include box(60%, null, null, null, null);
+        @include box(60%, auto, null, null, null);
       }
       @include for-phone-only() {
-        @include box(70%, null, null, null, null);
+        @include box(70%, auto, null, null, null);
       }
       @include for-extra-small-phone-only() {
-        @include box(90%, null, null, null, null);
+        @include box(90%, auto, null, null, null);
       }
       @include for-additional-tablet-up() {
-        @include box(90%, null, null, null, null);
+        @include box(90%, auto, null, null, null);
       }
       @include for-desktop-up() {
-        @include box(80%, null, null, null, null);
+        @include box(60%, auto, null, null, null);
+        padding: 30px;
       }
     }
     &--restaurant {
@@ -415,8 +601,9 @@ canvas {
 }
 .praising {
   @include for-phone-only() {
-    @include box(100%, null, #f1260d, null, null);
+    @include box(100%, 100vh, #f1260d, null, null);
     padding: 10px 50px;
+    @include flex(center, center, column);
   }
   @include for-tablet-portrait-up() {
     @include flex(center, center, null);
@@ -426,6 +613,9 @@ canvas {
   &__txt {
     @include for-phone-only() {
       @include font($openSans, 28px, null, null, #ffffff);
+    }
+    @include for-extra-small-phone-only() {
+      @include font($openSans, 22px, null, null, #ffffff);
     }
     @include for-tablet-portrait-up() {
       @include font($openSans, 40px, null, null, #ffffff);
@@ -439,6 +629,9 @@ canvas {
     @include flex(null, center, null);
     @include font($openSans, 14px, 600, null, #ffffff);
     cursor: pointer;
+    @include for-phone-only() {
+      margin: 10px auto 0 0;
+    }
     @include for-tablet-portrait-up() {
       @include box(240px, 45px, #f1260d, null, null);
       margin: 0 auto 0 0;
@@ -479,7 +672,6 @@ canvas {
       @include box(70%, null, null, null, null);
       @include font($openSans, 50px, null, null, #000000);
       margin: 0 auto 50px 0;
-
     }
     @include for-tablet-landscape-up() {
       @include font($openSans, 60px, null, null, #000000);
@@ -504,11 +696,14 @@ canvas {
 .footer {
   @include for-tablet-portrait-up() {
     @include box(100%, null, #0a0a0a, null, null);
-    padding: 100px 50px;
+    padding: 100px 50px 50px 50px;
   }
   @include for-phone-only() {
     @include box(100%, null, #0a0a0a, null, null);
-    padding: 100px 50px;
+    padding: 100px 50px 50px 50px;
+  }
+  @include for-additional-tablet-up() {
+    @include flex(null, null, row);
   }
   &__aboutMe {
     @include for-tablet-portrait-up() {
@@ -518,6 +713,10 @@ canvas {
     @include for-phone-only() {
       @include box(100%, null, null, null, null);
       margin: 0 0 30px 0;
+    }
+    @include for-additional-tablet-up() {
+      @include box(50%, null, null, null, null);
+      padding: 0 20px 30px 20px;
     }
     h1 {
       @include for-tablet-portrait-up() {
@@ -538,6 +737,21 @@ canvas {
         @include font($openSans, 13.5px, null, null, #cfcfcf);
         line-height: 28px;
       }
+      @include for-additional-tablet-up() {
+        @include font($openSans, 15px, null, null, #cfcfcf);
+      }
+    }
+  }
+  &__info {
+    @include for-phone-only() {
+      @include box(100%, null, null, null, null);
+    }
+    @include for-tablet-portrait-up() {
+      @include box(100%, null, null, null, null);
+    }
+    @include for-additional-tablet-up() {
+      @include box(50%, null, null, null, null);
+      padding: 0 0 0 40px;
     }
   }
   &__socialMedia {
