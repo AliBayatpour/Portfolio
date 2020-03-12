@@ -80,7 +80,7 @@ $openSans: "Open Sans", sans-serif;
 // NAVIGATION
 .navContainer {
   position: fixed;
-  @include box(100%, 100px, transparent null, null);
+  @include box(100%, 100px, transparent, null, null);
   z-index: 7;
   @include flex(null, center, row);
   @include for-phone-only() {
@@ -172,7 +172,7 @@ $openSans: "Open Sans", sans-serif;
 }
 
 .munuDropdown {
-  @include box(100%, 100%, transparent null, null);
+  @include box(100%, 100%, transparent, null, null);
   @include flex(null, center, null);
   position: fixed;
   z-index: 5;
@@ -197,7 +197,7 @@ $openSans: "Open Sans", sans-serif;
     @include font($openSans, 25px, 600, null, #222222);
     list-style: none;
     margin: 10px 0;
-    &--contact {
+    &--link {
       a {
         text-decoration: none;
         @include font($openSans, 25px, 600, null, #222222);

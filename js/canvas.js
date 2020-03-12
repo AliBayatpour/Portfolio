@@ -1,10 +1,12 @@
+// INITIALIZING GSAP SCROLL TO
+gsap.registerPlugin(ScrollToPlugin);
+
 //INITIALIZING PAGE TRANSITION SWUP
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 randomIntFromRange = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
-
 
 distance = (x1, y1, x2, y2) => {
   const xDist = x2 - x1;
@@ -377,9 +379,10 @@ const sectionObserver = new IntersectionObserver((entries, observer) => {
           break;
 
         default:
+          oal[0].style.stroke = "#000000";
+          oal[1].style.fill = "#000000";
           break;
       }
-    } else {
     }
   });
 }, sectionOptions);
@@ -417,8 +420,24 @@ images.forEach(image => {
   imgObserver.observe(image);
 });
 
-// let oal = document.querySelectorAll(".navContainer__oalSvg path");
-// console.log(oal);
-// oal.forEach((elem, index) => {
-//   console.log(`this is path ${index} and length is ${elem.getTotalLength()}`);
-// });
+// GO TO ABOUT ME
+goToAboutMe = () => {
+  gsap.to(window, { duration: 1, scrollTo: ".footer__aboutMe", offsetY: 50 });
+};
+
+// CUSTOM MOUSE CURSOR
+let mouseCursor = document.querySelector(".cursor");
+navLinks = document.querySelectorAll(".mainNav__links");
+window.addEventListener('mousemove', cursor);
+function cursor(e) {
+  mouseCursor.style.top = e.pageY + 'px';
+  mouseCursor.style.left = e.pageX + 'px';
+} 
+navLinks.forEach(link => {
+  link.addEventListener('mouseleave', () => {
+    mouseCursor.classList.remove("linkGrow");
+  });
+  link.addEventListener('mouseover', () => {
+    mouseCursor.classList.add("linkGrow");
+  });
+});

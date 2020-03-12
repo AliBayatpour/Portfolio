@@ -41,10 +41,12 @@
       </div>
       <div class="munuDropdown__menu">
         <ul>
-          <li class="munuDropdown__li">HOME</li>
+          <li class="munuDropdown__li munuDropdown__li--link">
+            <a href="../index.html">HOME</a>
+          </li>
           <li class="munuDropdown__li">SERVICE</li>
           <li class="munuDropdown__li">PORTFOLIO</li>
-          <li class="munuDropdown__li munuDropdown__li--contact">
+          <li class="munuDropdown__li munuDropdown__li--link">
             <a href="./contact/contact.html">CONTACT</a>
           </li>
         </ul>
@@ -59,47 +61,41 @@
         >
       </div>
     </div>
-    <main id="swup" class="transition-fade">
-      <div class="formContainer">
-        <div class="formContainer__pageIntro">
-          <span>GET IN TOUCH</span>
-          <h1>Let's Talk</h1>
-          <p>I'm here to help and answer any question you might have.</p>
-          <a
-            href="mailto:aliglbayatpour@gmail.com?Subject=Hello%20again"
-            target="_top"
-            >aliglbayatpour@gmail.com</a
-          >
-          <a href="tel:+37256193750">+372-561-937-50</a>
-        </div>
-        <form class="contactForm" action="">
-          <fieldset>
-            <div class="contactForm__input contactForm__input--name">
-              <label>What is your name?</label>
-              <input
-                type="text"
-                name="firstName"
-                class="contactForm__element"
-              />
-            </div>
-            <div class="contactForm__input contactForm__input--email ">
-              <label>What is your email address?</label>
-              <input type="email" name="email" class="contactForm__element" />
-            </div>
-            <div class="contactForm__textArea">
-              <label>Your Message</label>
-              <textarea name="message" class="contactForm__element"></textarea>
-            </div>
-            <input class="contactForm__SubmitBut" type="submit" value="Send" />
-          </fieldset>
-        </form>
-        <div class="formContainer__followMyWork">
-          <span>FOLLOW MY WORK</span>
-          <a href="#"><i class="fab fa-linkedin-in"></i>on LinkedIn</a
-          ><a href="#"><i class="fab fa-facebook-square"></i>on Facebook</a>
-        </div>
+    <div class="formContainer">
+      <div class="formContainer__pageIntro">
+        <span>GET IN TOUCH</span>
+        <h1>Let's Talk</h1>
+        <p>I'm here to help and answer any question you might have.</p>
+        <a
+          href="mailto:aliglbayatpour@gmail.com?Subject=Hello%20again"
+          target="_top"
+          >aliglbayatpour@gmail.com</a
+        >
+        <a href="tel:+37256193750">+372-561-937-50</a>
       </div>
-    </main>
+      <form class="contactForm" action="">
+        <fieldset>
+          <div class="contactForm__input contactForm__input--name">
+            <label>What is your name?</label>
+            <input type="text" name="firstName" class="contactForm__element" />
+          </div>
+          <div class="contactForm__input contactForm__input--email ">
+            <label>What is your email address?</label>
+            <input type="email" name="email" class="contactForm__element" />
+          </div>
+          <div class="contactForm__textArea">
+            <label>Your Message</label>
+            <textarea name="message" class="contactForm__element"></textarea>
+          </div>
+          <input class="contactForm__SubmitBut" type="submit" value="Send" />
+        </fieldset>
+      </form>
+      <div class="formContainer__followMyWork">
+        <span>FOLLOW MY WORK</span>
+        <a href="https://www.linkedin.com/in/ali-bayatpour-b0179912a/"><i class="fab fa-linkedin-in"></i>on LinkedIn</a
+        ><a href="https://www.facebook.com/ali.bayatpour.18"><i class="fab fa-facebook-square"></i>on Facebook</a>
+      </div>
+    </div>
     <script src="./js/contact.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
   </body>

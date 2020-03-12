@@ -93,7 +93,7 @@ $openSans: "Open Sans", sans-serif;
 // NAVIGATION
 .navContainer {
   position: fixed;
-  @include box(100%, 100px, transparent null, null);
+  @include box(100%, 100px, transparent, null, null);
   z-index: 7;
   @include flex(null, center, row);
   flex-wrap: nowrap;
@@ -168,6 +168,7 @@ $openSans: "Open Sans", sans-serif;
       @include flex(null, null, row);
       li {
         list-style: none;
+        margin: 0 5px;
         a {
           @include font($openSans, 15px, 600, null, #ffffff);
           text-decoration: none;
@@ -249,7 +250,7 @@ $openSans: "Open Sans", sans-serif;
 }
 
 .munuDropdown {
-  @include box(100%, 100%, transparent null, null);
+  @include box(100%, 100%, transparent, null, null);
   @include flex(null, center, null);
   position: fixed;
   z-index: 5;
@@ -274,7 +275,7 @@ $openSans: "Open Sans", sans-serif;
     @include font($openSans, 25px, 600, null, #222222);
     list-style: none;
     margin: 10px 0;
-    &--contact {
+    &--link {
       a {
         text-decoration: none;
         @include font($openSans, 25px, 600, null, #222222);
@@ -304,6 +305,7 @@ $openSans: "Open Sans", sans-serif;
 // STAR SHOWER CANVAS
 canvas {
   @include box(100%, 100%, null, null, null);
+  z-index: -1;
 }
 
 // INTRODUCTION BANNER
@@ -362,7 +364,7 @@ canvas {
 }
 
 .munuDropdown {
-  @include box(100%, 100%, transparent null, null);
+  @include box(100%, 100%, transparent, null, null);
   @include flex(null, center, null);
   position: fixed;
   z-index: 5;
@@ -414,7 +416,8 @@ canvas {
   }
 }
 
-.myServicesBut {
+.aboutMe {
+  cursor: pointer;
   @include flex(center, center, null);
   @include for-phone-only() {
     @include box(100%, 45px, #f1260d, null, null);
@@ -585,6 +588,8 @@ canvas {
     }
   }
   &__adTalkToHuman {
+    text-decoration: none;
+    cursor: pointer;
     @include for-tablet-portrait-up() {
       @include box(50%, 45px, #f1260d, null, null);
       @include font($openSans, 14px, 500, null, #ffffff);
@@ -634,7 +639,7 @@ canvas {
     }
     @include for-tablet-portrait-up() {
       @include box(240px, 45px, #f1260d, null, null);
-      margin: 0 auto 0 0;
+      margin: 0 auto auto 0;
     }
     i {
       @include font(null, 18px, 600, null, #ffffff);
@@ -705,6 +710,10 @@ canvas {
   @include for-additional-tablet-up() {
     @include flex(null, null, row);
   }
+  &__myImg {
+    @include box(200px, auto, null, null, null);
+    margin: 0 0 10px 0;
+  }
   &__aboutMe {
     @include for-tablet-portrait-up() {
       @include box(100%, null, null, null, null);
@@ -760,7 +769,7 @@ canvas {
       text-decoration: none;
     }
     i {
-      margin: 0 10px 0 0;
+      margin: 0 20px 0 0;
       @include for-tablet-portrait-up() {
         @include font(null, 26px, null, null, #ffffff);
       }
@@ -807,4 +816,28 @@ canvas {
       @include font($openSans, 12px, null, null, #cfcfcf);
     }
   }
+}
+// BUILDING A CUSTOM CURSOR
+.cursor {
+  transform-origin: 100% 100%;
+  @include box(3rem, 3rem, null, 50%, 2px solid #f1260d);
+  @include flex(center, center, null);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transition-property: background, transform;
+  z-index: 1;
+  backdrop-filter: hue-rotate(30deg);
+  &__dot {
+    @include box(3px, 3px, #ffffff, 50%, null);
+  }
+}
+.linkGrow {
+  transform: scale(2);
+  background: #f1260d;
+}
+.portfolio__workItem img {
+  position: relative;
+  z-index: -3;
 }

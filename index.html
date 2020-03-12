@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
+    <div class="cursor"><span class="cursor__dot"></span></div>
     <nav>
       <div class="navContainer">
         <div class="navContainer__logo">
@@ -119,10 +120,10 @@
         </div>
         <div class="mainNav">
           <ul>
-            <li><a href="./index.html">HOME</a></li>
-            <li><a href="#">SERVICES</a></li>
-            <li><a href="#">PORTFOLIO</a></li>
-            <li><a href="./contact/contact.html">CONTACT</a></li>
+            <li class="mainNav__links"><a href="./index.html">HOME</a></li>
+            <li class="mainNav__links"><a href="#">SERVICES</a></li>
+            <li class="mainNav__links"><a href="#">PORTFOLIO</a></li>
+            <li class="mainNav__links"><a href="./contact/contact.html">CONTACT</a></li>
           </ul>
         </div>
         <div class="navContainer__bookAppointment">
@@ -141,10 +142,12 @@
       </div>
       <div class="munuDropdown__menu">
         <ul>
-          <li class="munuDropdown__li">HOME</li>
+          <li class="munuDropdown__li munuDropdown__li--link">
+            <a href="./index.html">HOME</a>
+          </li>
           <li class="munuDropdown__li">SERVICE</li>
           <li class="munuDropdown__li">PORTFOLIO</li>
-          <li class="munuDropdown__li munuDropdown__li--contact">
+          <li class="munuDropdown__li munuDropdown__li--link">
             <a href="./contact/contact.html">CONTACT</a>
           </li>
         </ul>
@@ -159,103 +162,101 @@
         >
       </div>
     </div>
-    <main id="swup" class="transition-fade">
-      <div class="introduction section">
-        <canvas></canvas>
-        <div class="introduction__text">
-          <span class="introduction__intro">FRONT-END DEVELOPER TALLINN</span>
-          <span class="introduction__adTxt"
-            >I help companies to make every detail perfect and limit the number
-            of details to perfect. Are you next?</span
-          >
-          <div class="myServicesBut">MY SERVICES</div>
-        </div>
-      </div>
-      <div class="portfolio section">
-        <div class="portfolio__container">
-          <div class="portfolio__header"><h1>Latest Work</h1></div>
-          <p class="portfolio__subHeaderTxt">Explore a selection of my work.</p>
-          <div class="portfolio__workItem">
-            <img
-              data-src="./assets/realEstateTabletFrame.png"
-              alt="Ali bayatpour Real Estate Website"
-              class="portfolio__img portfolio__img--realState"
-            />
-          </div>
-          <div class="portfolio__ad">
-            <h1 class="portfolio__adHeader">Are you next?</h1>
-            <p class="portfolio__adPara">
-              I'm always open to new working relationships with friendly,
-              disruptive brands and start-ups, get in touch to find out if
-              you're next.
-            </p>
-            <div class="portfolio__adTalkToHuman">SEND ME A MESSAGE</div>
-          </div>
-          <div class="portfolio__workItem">
-            <img
-              data-src="./assets/restaurantMobileFrame.png"
-              alt="Ali bayatpour Restaurant Website"
-              class="portfolio__img portfolio__img--restaurant"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="praising section">
-        <h3 class="praising__txt">
-          I'm a Hard Working Creative, Problem Solver and forward-thinker that
-          pushes boundaries for ground breaking results.
-        </h3>
-        <div
-          class="praising__botton"
-          onmouseenter="movingArrow()"
-          onmouseleave="stopArrow()"
+    <div class="introduction section">
+      <canvas></canvas>
+      <div class="introduction__text">
+        <span class="introduction__intro">FRONT-END DEVELOPER TALLINN</span>
+        <span class="introduction__adTxt"
+          >I help companies to make every detail perfect and limit the number of
+          details to perfect. Are you next?</span
         >
-          GET COFFEE <i class="fas fa-arrow-right"></i>
+        <div class="aboutMe" onclick="goToAboutMe()">ABOUT ME</div>
+      </div>
+    </div>
+    <div class="portfolio section">
+      <div class="portfolio__container">
+        <div class="portfolio__header"><h1>Latest Work</h1></div>
+        <p class="portfolio__subHeaderTxt">Explore a selection of my work.</p>
+        <div class="portfolio__workItem">
+          <img
+            data-src="./assets/realEstateTabletFrame.png"
+            alt="Ali bayatpour Real Estate Website"
+            class="portfolio__img portfolio__img--realState"
+          />
+        </div>
+        <div class="portfolio__ad">
+          <h1 class="portfolio__adHeader">Are you next?</h1>
+          <p class="portfolio__adPara">
+            I'm always open to new working relationships with friendly,
+            disruptive brands and start-ups, get in touch to find out if you're
+            next.
+          </p>
+          <a class="portfolio__adTalkToHuman" href="./contact/contact.html">SEND ME A MESSAGE</a>
+        </div>
+        <div class="portfolio__workItem">
+          <img
+            data-src="./assets/restaurantMobileFrame.png"
+            alt="Ali bayatpour Restaurant Website"
+            class="portfolio__img portfolio__img--restaurant"
+          />
         </div>
       </div>
-      <div class="secAd section">
-        <div class="secAd__preHeader">Lets work together</div>
-        <h1 class="secAd__header">My launch pad is ready and waiting</h1>
-        <div class="secAd__meet">ARRANGE A MEETING</div>
+    </div>
+    <div class="praising section">
+      <h3 class="praising__txt">
+        I always try to Be humble but hungry. And always be the hardest worker in the room.
+      </h3>
+      <div
+        class="praising__botton"
+        onmouseenter="movingArrow()"
+        onmouseleave="stopArrow()"
+      >
+        GET COFFEE <i class="fas fa-arrow-right"></i>
       </div>
-      <footer>
-        <div class="footer section">
-          <div class="footer__aboutMe">
-            <h1>About Me</h1>
-            <p>
-              I am Ali Bayatpour. I'm a 25-year-old front-end developer. I got
-              my bachelor’s in Computer Engineering. I'm also studying Master of
-              Business Administration at Tallinn University of Technology. I
-              live in Tallinn, the beautiful capital of Estonia. I'm skilled in
-              HTML, CSS, SCSS, JavaScript(also ES6 and later versions),
-              React(hooks, redux), Aimations(GSAP, Rellax, laxxx and a few
-              more), project management methodologies Scrum and Kanban and also
-              project management software Jira. I am learning everyday to allow
-              the space between where I am and where I want to be inspire me and
-              not terrify me.
-            </p>
-          </div>
-          <div class="footer__info">
-            <div class="footer__socialMedia">
-              <a href="#"><i class="fab fa-linkedin-in"></i></a
-              ><a href="#"><i class="fab fa-facebook-square"></i></a>
-            </div>
-            <div class="footer__contact">
-              <h4 class="footer__contactHeader">Have a project?</h4>
-              <a
-                href="mailto:aliglbayatpour@gmail.com?Subject=Hello%20again"
-                target="_top"
-                >aliglbayatpour@gmail.com</a
-              >
-              <a href="tel:+37256193750">+37256193750</a>
-            </div>
-            <div class="footer__copyright">© 2020 Copyright ALBA</div>
-          </div>
+    </div>
+    <div class="secAd section">
+      <div class="secAd__preHeader">Lets work together</div>
+      <h1 class="secAd__header">My launch pad is ready and waiting</h1>
+      <div class="secAd__meet">ARRANGE A MEETING</div>
+    </div>
+    <footer>
+      <div class="footer section">
+        <div class="footer__aboutMe">
+          <h1>About Me</h1>
+          <img class="footer__myImg" src="./assets/AliBayatpourImage.jpg" alt="Ali Bayatpour Image">
+          <p>
+            I am Ali Bayatpour. I'm a 25-year-old front-end developer. I got my
+            bachelor’s in Computer Engineering. I'm also studying Master of
+            Business Administration at Tallinn University of Technology. I live
+            in Tallinn, the beautiful capital of Estonia. I'm skilled in HTML,
+            CSS, SCSS, JavaScript(also ES6 and later versions), React(hooks,
+            redux), Aimations(GSAP, Rellax, laxxx and a few more), project
+            management methodologies Scrum and Kanban and also project
+            management software Jira. I am learning everyday to allow the space
+            between where I am and where I want to be inspire me and not terrify
+            me.
+          </p>
         </div>
-      </footer>
-    </main>
+        <div class="footer__info">
+          <div class="footer__socialMedia">
+            <a href="https://www.facebook.com/ali.bayatpour.18"><i class="fab fa-linkedin-in"></i></a
+            ><a href="https://www.linkedin.com/in/ali-bayatpour-b0179912a/"><i class="fab fa-facebook-square"></i></a>
+          </div>
+          <div class="footer__contact">
+            <h4 class="footer__contactHeader">Have a project?</h4>
+            <a
+              href="mailto:aliglbayatpour@gmail.com?Subject=Hello%20again"
+              target="_top"
+              >aliglbayatpour@gmail.com</a
+            >
+            <a href="tel:+37256193750">+372-561-937-50</a>
+          </div>
+          <div class="footer__copyright">© 2020 Copyright ALBA</div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
     <script src="./js/canvas.js"></script>
-    <script src="./node_modules/swup/dist/swup.min.js"></script>
   </body>
 </html>
