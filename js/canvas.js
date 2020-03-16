@@ -181,7 +181,7 @@ animate = () => {
     const radius = 12;
     const x = Math.max(radius, Math.random() * canvas.width - radius);
     stars.push(new Star(x, -100, radius, "white"));
-    randomSpawnRate = randomIntFromRange(75, 500);
+    randomSpawnRate = randomIntFromRange(75, 400);
   }
 };
 init();
@@ -344,10 +344,12 @@ let oal = document.querySelectorAll(".navContainer__logo svg");
 let hamburgerMenu = document.querySelector(".phoneMenuBar");
 // CONTROL COLOR OF LOGO AND HAMBURGER MENU
 let sections = document.querySelectorAll(".section");
+// svg color flag
+let loadingTime = true;
 const sectionOptions = {
   root: null,
   threshold: 0,
-  rootMargin: "0px 0px -98% 0px"
+  rootMargin: "0px 0px -100% 0px"
 };
 const sectionObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
@@ -376,13 +378,15 @@ const sectionObserver = new IntersectionObserver((entries, observer) => {
         case "footer":
           oal[0].style.stroke = "#ffffff";
           oal[1].style.fill = "#ffffff";
+          loadingTime = false;
           break;
 
         default:
-          oal[0].style.stroke = "#000000";
-          oal[1].style.fill = "#000000";
           break;
       }
+    } else if (entry.target.classList[0] == "footer" && !loadingTime) {
+      oal[0].style.stroke = "#000000";
+      oal[1].style.fill = "#000000";
     }
   });
 }, sectionOptions);
@@ -421,23 +425,50 @@ images.forEach(image => {
 });
 
 // GO TO ABOUT ME
-goToAboutMe = () => {
-  gsap.to(window, { duration: 1, scrollTo: ".footer__aboutMe", offsetY: 50 });
+goToSection = elem => {
+  if (menuShows) {
+    menuClicked();
+  }
+  gsap.to(window, { duration: 1, scrollTo: elem, offsetY: 100 });
 };
 
 // CUSTOM MOUSE CURSOR
 let mouseCursor = document.querySelector(".cursor");
 navLinks = document.querySelectorAll(".mainNav__links");
-window.addEventListener('mousemove', cursor);
+window.addEventListener("mousemove", cursor);
 function cursor(e) {
-  mouseCursor.style.top = e.pageY + 'px';
-  mouseCursor.style.left = e.pageX + 'px';
-} 
+  mouseCursor.style.top = e.pageY + "px";
+  mouseCursor.style.left = e.pageX + "px";
+}
 navLinks.forEach(link => {
-  link.addEventListener('mouseleave', () => {
+  link.addEventListener("mouseleave", () => {
     mouseCursor.classList.remove("linkGrow");
   });
-  link.addEventListener('mouseover', () => {
+  link.addEventListener("mouseover", () => {
     mouseCursor.classList.add("linkGrow");
   });
 });
+
+showButs = (elem, but) => {
+  document.querySelector(elem).style.display = "flex";
+  gsap.fromTo(but, 1, { opacity: 0 }, { opacity: 1 });
+};
+hideButs = (elem, but) => {
+  gsap.fromTo(
+    but,
+    1,
+    { opacity: 1 },
+    {
+      opacity: 0,
+      onComplete: () => {
+        document.querySelector(elem).style.display = "none";
+      }
+    }
+  );
+};
+let undecoded = document.location.search.replace(/^.*?\=/, "");
+document.body.onload = function() {
+  if (undecoded) {
+    goToSection(`.${undecoded}`);
+  }
+};

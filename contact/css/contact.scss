@@ -76,6 +76,17 @@ $openSans: "Open Sans", sans-serif;
     @content;
   }
 }
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
 
 // NAVIGATION
 .navContainer {
@@ -83,6 +94,7 @@ $openSans: "Open Sans", sans-serif;
   @include box(100%, 100px, transparent, null, null);
   z-index: 7;
   @include flex(null, center, row);
+  flex-wrap: nowrap;
   @include for-phone-only() {
     padding: 0 30px;
   }
@@ -92,22 +104,41 @@ $openSans: "Open Sans", sans-serif;
   @include for-tablet-portrait-up() {
     padding: 0 30px;
   }
-  @include for-additional-tablet-up() {
-    padding: 0 40px;
-  }
   &__logo {
+    @include flex(center, center, column);
+    flex-wrap: nowrap;
     @include for-phone-only() {
-      @include box(70px, auto, null, null, null);
+      @include box(80px, auto, null, null, null);
     }
     @include for-tablet-portrait-up() {
-      @include box(70px, auto, null, null, null);
+      @include box(80px, auto, null, null, null);
     }
     @include for-tablet-landscape-up() {
       @include box(80px, auto, null, null, null);
     }
-    img {
-      @include box(100%, null, null, null, null);
+  }
+  @include keyframes(oal-anim) {
+    to {
+      stroke-dashoffset: 0;
     }
+  }
+  &__oalSvg {
+    stroke: #ffffff;
+    width: 40px;
+    path:nth-child(27) {
+      stroke-dasharray: 62.80934524536133;
+      stroke-dashoffset: 62.80934524536133;
+      animation: oal-anim 1s ease infinite alternate;
+    }
+    path:last-child {
+      stroke-dasharray: 62.80934524536133;
+      stroke-dashoffset: 62.80934524536133;
+      animation: oal-anim 1s ease infinite alternate;
+    }
+  }
+  &__nameSvg {
+    width: 70px;
+    fill: white;
   }
   // MAIN NAVIGATION BAR
   .mainNav {
@@ -125,7 +156,8 @@ $openSans: "Open Sans", sans-serif;
       @include flex(null, null, row);
       li {
         list-style: none;
-        a{
+        margin: 0 5px;
+        a {
           @include font($openSans, 15px, 600, null, #ffffff);
           text-decoration: none;
           padding: 0 15px;
@@ -137,9 +169,10 @@ $openSans: "Open Sans", sans-serif;
 
   // HAMBURGER BAR ICON
   .phoneMenuBar {
+    margin: 0 0 0 auto;
     cursor: pointer;
     @include box(45px, 40px, #f1260d, null, null);
-    z-index: 5;
+    z-index: 6;
     &__line {
       @include box(80%, 0.9px, #ffffff, null, null);
       margin: 5px 0;
@@ -148,25 +181,13 @@ $openSans: "Open Sans", sans-serif;
       top: 15px;
       right: 15px;
       @include flex(center, center, column);
+      min-width: 45px;
     }
     @include for-tablet-portrait-up() {
+      min-width: 45px;
       top: 15px;
       right: 15px;
       @include flex(center, center, column);
-    }
-  }
-  &__bookAppointment {
-    @include for-phone-only() {
-      display: none;
-    }
-    @include for-tablet-portrait-up() {
-      margin: 0 20px 0 auto;
-    }
-    a {
-      @include for-tablet-portrait-up() {
-        @include font($openSans, 15px, 600, null, #ffffff);
-        text-decoration-color: #f1260d;
-      }
     }
   }
 }
@@ -223,6 +244,7 @@ $openSans: "Open Sans", sans-serif;
     display: block;
   }
 }
+
 .formContainer {
   padding: 120px 50px 50px 50px;
   position: relative;
@@ -288,6 +310,10 @@ $openSans: "Open Sans", sans-serif;
         @include font($openSans, 18px, 600, null, #ffffff);
         letter-spacing: 1px;
       }
+      @include for-extra-small-phone-only() {
+        @include font($openSans, 16px, 600, null, #ffffff);
+        letter-spacing: 0;
+      }
       @include for-tablet-portrait-up() {
         @include font($openSans, 20px, 600, null, #ffffff);
       }
@@ -303,7 +329,7 @@ $openSans: "Open Sans", sans-serif;
       @include box(80%, null, null, null, null);
     }
     @include for-tablet-landscape-up() {
-      @include box(80%, 100vh, null, null, null);
+      @include box(80%, 50vh, null, null, null);
     }
     background: 
     /* On "top" */ repeating-linear-gradient(
@@ -395,12 +421,14 @@ $openSans: "Open Sans", sans-serif;
       padding: 0 5px;
       @include for-phone-only() {
         @include box(100%, 40px, null, 1px, none);
+        @include font($openSans, 16px, null, null, null);
       }
       @include for-extra-small-phone-only() {
         @include box(100%, 35px, null, 1px, none);
       }
       @include for-tablet-portrait-up() {
         @include box(100%, 40px, null, 1px, none);
+        @include font($openSans, 17px, null, null, null);
       }
     }
   }
@@ -411,9 +439,11 @@ $openSans: "Open Sans", sans-serif;
       padding: 0 5px;
       @include for-phone-only() {
         @include box(100%, 100px, null, 1px, null);
+        @include font($openSans, 16px, null, null, null);
       }
       @include for-tablet-portrait-up() {
         @include box(100%, 150px, null, 1px, null);
+        @include font($openSans, 17px, null, null, null);
       }
       @include for-tablet-landscape-up() {
         @include box(100%, 180px, null, 1px, null);
@@ -421,7 +451,8 @@ $openSans: "Open Sans", sans-serif;
     }
   }
   &__SubmitBut {
-    @include flex(null, null, null);
+    cursor: not-allowed;
+    @include flex(null, center, null);
     padding: 0 0 0 20px;
     @include font($openSans, 14px, 600, null, #ffffff);
     @include for-phone-only() {
@@ -441,5 +472,59 @@ $openSans: "Open Sans", sans-serif;
   }
   &__element {
     outline: none;
+  }
+}
+
+// BUILDING A CUSTOM CURSOR
+.cursor {
+  transform-origin: 100% 100%;
+  @include box(3rem, 3rem, null, 50%, 2px solid #f1260d);
+  @include flex(center, center, null);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  transition-property: background, transform;
+  z-index: 1;
+  backdrop-filter: hue-rotate(30deg);
+  &__dot {
+    @include box(3px, 3px, #ffffff, 50%, null);
+  }
+  @include for-phone-only() {
+    display: none;
+  }
+}
+.linkGrow {
+  transform: scale(2);
+  background: #f1260d;
+}
+.portfolio__workItem img {
+  position: relative;
+  z-index: -3;
+}
+
+// MESSAGE BOX FOR EMAIL SUCCESS
+.emailFeedbackMessage {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  @include for-phone-only() {
+    @include box(70%, auto, green, 2px, null);
+    @include font($openSans, 17px, null, null, #ffffff);
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 20px 5px;
+    margin: 0 0 5px 0;
+  }
+  @include for-extra-small-phone-only() {
+    @include box(90%, auto, null, 2px, null);
+  }
+  @include for-tablet-portrait-up() {
+    @include font($openSans, 17px, null, null, #ffffff);
+    @include box(300px, auto, green, 2px, null);
+    padding: 20px;
+    margin: 0 0 10px 0;
+    left: 50%;
+    transform: translate(-50%, 0);
   }
 }

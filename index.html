@@ -16,7 +16,6 @@
     <nav>
       <div class="navContainer">
         <div class="navContainer__logo">
-          <!-- Generator: Adobe Illustrator 24.0.2, SVG Export Plug-In  -->
           <svg
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -50,32 +49,28 @@
             <path
               class="st0"
               d="M19.65,204.85c-1.05-32.08,24.34-61.01,56-66c36.45-5.74,74,21.4,77,59c2.65,33.23-22.61,63.23-54,69
-	C60.49,273.87,20.93,243.67,19.65,204.85z"
+C60.49,273.87,20.93,243.67,19.65,204.85z"
             />
             <path
               class="st0"
               d="M52.65,171.85c17.57-11.89,40.2-9.58,53,4c10.5,11.14,12.48,27.85,7,41c-7.4,17.77-29,30.4-48,23
-	c-13.88-5.41-23.19-20.26-23-37"
-            />
-            <path
-              class="st0"
-              d="M71.15,186.38c9.82-0.47,17.91,6.04,19.65,14.49c1.43,6.97-1.93,13.01-2.81,14.49"
+c-13.88-5.41-23.19-20.26-23-37"
             />
             <path
               class="st0"
               d="M200.65,203.85c-0.55-35.14,30.83-62.33,63-65c38.14-3.16,75.03,28.56,75,64
-	c-0.02,29.54-25.7,48.94-29.38,51.64c-7.07,4.79-20.84,12.52-38.62,12.36C239.41,266.57,201.25,241.99,200.65,203.85z"
+c-0.02,29.54-25.7,48.94-29.38,51.64c-7.07,4.79-20.84,12.52-38.62,12.36C239.41,266.57,201.25,241.99,200.65,203.85z"
             />
             <path
               class="st0"
               d="M233.65,171.85c15.01-12.17,36.26-11.89,50,0c12.35,10.69,16.06,28.52,10,43c-7.73,18.46-30.2,28.71-49,21
-	c-14.71-6.03-24.16-21.82-23-39"
+c-14.71-6.03-24.16-21.82-23-39"
             />
             <path class="st0" d="M164.65,442.85" />
             <path
               class="st0"
               d="M16.65,268.85c-1.64,10.07-10.46,70.45,31,122c33.61,41.79,78.96,51.28,93,54c13.24,2.56,74.11,12.62,125-26
-	c49.22-37.35,70.26-105.93,53-173"
+c49.22-37.35,70.26-105.93,53-173"
             />
             <path class="st0" d="M21.65,263.85" />
             <path class="st0" d="M171.65,239.85" />
@@ -98,7 +93,11 @@
             <line class="st0" x1="299.65" y1="429.85" x2="292.65" y2="461.85" />
             <path
               class="st0"
-              d="M253.92,184.21c9.82-0.47,17.91,6.04,19.65,14.49c1.43,6.97-1.93,13.01-2.81,14.49"
+              d="M244.65,187.85c12.03-5.67,24.34-0.23,27,7c2.74,7.43-3.52,20.01-17,23"
+            />
+            <path
+              class="st0"
+              d="M64.8,188.6c12.03-5.67,24.34-0.23,27,7c2.74,7.43-3.52,20.01-17,23"
             />
           </svg>
           <svg
@@ -121,9 +120,18 @@
         <div class="mainNav">
           <ul>
             <li class="mainNav__links"><a href="./index.html">HOME</a></li>
-            <li class="mainNav__links"><a href="#">SERVICES</a></li>
-            <li class="mainNav__links"><a href="#">PORTFOLIO</a></li>
-            <li class="mainNav__links"><a href="./contact/contact.html">CONTACT</a></li>
+            <li class="mainNav__links" onclick="goToSection('.portfolio')">
+              <a href="#">PORTFOLIO</a>
+            </li>
+            <li
+              class="mainNav__links"
+              onclick="goToSection('.footer__aboutMe')"
+            >
+              <a href="#">ABOUT ME</a>
+            </li>
+            <li class="mainNav__links">
+              <a href="./contact/contact.html">CONTACT</a>
+            </li>
           </ul>
         </div>
         <div class="navContainer__bookAppointment">
@@ -145,8 +153,15 @@
           <li class="munuDropdown__li munuDropdown__li--link">
             <a href="./index.html">HOME</a>
           </li>
-          <li class="munuDropdown__li">SERVICE</li>
-          <li class="munuDropdown__li">PORTFOLIO</li>
+          <li class="munuDropdown__li" onclick="goToSection('.portfolio')">
+            PORTFOLIO
+          </li>
+          <li
+            class="munuDropdown__li"
+            onclick="goToSection('.footer__aboutMe')"
+          >
+            ABOUT ME
+          </li>
           <li class="munuDropdown__li munuDropdown__li--link">
             <a href="./contact/contact.html">CONTACT</a>
           </li>
@@ -170,14 +185,33 @@
           >I help companies to make every detail perfect and limit the number of
           details to perfect. Are you next?</span
         >
-        <div class="aboutMe" onclick="goToAboutMe()">ABOUT ME</div>
+        <div class="aboutMe" onclick="goToSection('.footer__aboutMe')">
+          ABOUT ME
+        </div>
       </div>
     </div>
     <div class="portfolio section">
       <div class="portfolio__container">
         <div class="portfolio__header"><h1>Latest Work</h1></div>
         <p class="portfolio__subHeaderTxt">Explore a selection of my work.</p>
-        <div class="portfolio__workItem">
+        <div
+          class="workItem"
+          onmouseenter="showButs('.workItem__btnContainer--realEstate','.workItem__btn--realEstate')"
+          onmouseleave="hideButs('.workItem__btnContainer--realEstate','.workItem__btn--realEstate')"
+        >
+          <div
+            class="workItem__btnContainer workItem__btnContainer--realEstate"
+          >
+            <a
+              href="https://github.com/AliBayatpour/realEstate"
+              target="_blank"
+              class="workItem__btn workItem__btn--realEstate"
+              >SOURCE CODE</a
+            >
+            <a href="#" class="workItem__btn workItem__btn--realEstate"
+              >WEBSITE</a
+            >
+          </div>
           <img
             data-src="./assets/realEstateTabletFrame.png"
             alt="Ali bayatpour Real Estate Website"
@@ -191,9 +225,28 @@
             disruptive brands and start-ups, get in touch to find out if you're
             next.
           </p>
-          <a class="portfolio__adTalkToHuman" href="./contact/contact.html">SEND ME A MESSAGE</a>
+          <a class="portfolio__adTalkToHuman" href="./contact/contact.html"
+            >SEND ME A MESSAGE</a
+          >
         </div>
-        <div class="portfolio__workItem">
+        <div
+          class="workItem"
+          onmouseenter="showButs('.workItem__btnContainer--restaurant','.workItem__btn--restaurant')"
+          onmouseleave="hideButs('.workItem__btnContainer--restaurant','.workItem__btn--restaurant')"
+        >
+          <div
+            class="workItem__btnContainer workItem__btnContainer--restaurant"
+          >
+            <a
+              href="https://github.com/AliBayatpour/Restaurant"
+              target="_blank"
+              class="workItem__btn workItem__btn--restaurant"
+              >SOURCE CODE</a
+            >
+            <a href="#" class="workItem__btn workItem__btn--restaurant"
+              >WEBSITE</a
+            >
+          </div>
           <img
             data-src="./assets/restaurantMobileFrame.png"
             alt="Ali bayatpour Restaurant Website"
@@ -204,33 +257,38 @@
     </div>
     <div class="praising section">
       <h3 class="praising__txt">
-        I always try to Be humble but hungry. And always be the hardest worker in the room.
+        I always try to Be humble but hungry and the hardest worker in the room.
       </h3>
-      <div
+      <a
+        href="./contact/contact.html"
         class="praising__botton"
         onmouseenter="movingArrow()"
         onmouseleave="stopArrow()"
       >
         GET COFFEE <i class="fas fa-arrow-right"></i>
-      </div>
+      </a>
     </div>
     <div class="secAd section">
       <div class="secAd__preHeader">Lets work together</div>
       <h1 class="secAd__header">My launch pad is ready and waiting</h1>
-      <div class="secAd__meet">ARRANGE A MEETING</div>
+      <a href="./contact/contact.html" class="secAd__meet">ARRANGE A MEETING</a>
     </div>
     <footer>
       <div class="footer section">
         <div class="footer__aboutMe">
           <h1>About Me</h1>
-          <img class="footer__myImg" src="./assets/AliBayatpourImage.jpg" alt="Ali Bayatpour Image">
+          <img
+            class="footer__myImg"
+            src="./assets/AliBayatpourImage.jpg"
+            alt="Ali Bayatpour Image"
+          />
           <p>
             I am Ali Bayatpour. I'm a 25-year-old front-end developer. I got my
             bachelor’s in Computer Engineering. I'm also studying Master of
             Business Administration at Tallinn University of Technology. I live
             in Tallinn, the beautiful capital of Estonia. I'm skilled in HTML,
-            CSS, SCSS, JavaScript(also ES6 and later versions), React(hooks,
-            redux), Aimations(GSAP, Rellax, laxxx and a few more), project
+            CSS, SCSS, JavaScript (also ES6 and later versions), React(hooks,
+            redux), Aimations (GSAP, Rellax, laxxx and a few more), project
             management methodologies Scrum and Kanban and also project
             management software Jira. I am learning everyday to allow the space
             between where I am and where I want to be inspire me and not terrify
@@ -239,8 +297,11 @@
         </div>
         <div class="footer__info">
           <div class="footer__socialMedia">
-            <a href="https://www.facebook.com/ali.bayatpour.18"><i class="fab fa-linkedin-in"></i></a
-            ><a href="https://www.linkedin.com/in/ali-bayatpour-b0179912a/"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://www.facebook.com/ali.bayatpour.18"
+              ><i class="fab fa-linkedin-in"></i></a
+            ><a href="https://www.linkedin.com/in/ali-bayatpour-b0179912a/"
+              ><i class="fab fa-facebook-square"></i
+            ></a>
           </div>
           <div class="footer__contact">
             <h4 class="footer__contactHeader">Have a project?</h4>

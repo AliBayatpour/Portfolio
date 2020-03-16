@@ -68,3 +68,111 @@ menuClicked = () => {
     menuShows = true;
   }
 };
+
+// CONTROLING THE MENUE STYLE
+let formContainer = document.querySelector(".formContainer");
+let mainNav = document.querySelector(".mainNav");
+let phoneMenuBar = document.querySelector(".phoneMenuBar");
+let pageIsTop = true;
+window.addEventListener("scroll", () => {
+  if (formContainer.getBoundingClientRect().top < -30 && pageIsTop) {
+    pageIsTop = false;
+    if (window.matchMedia("(min-width: 750px)").matches) {
+      gsap.to(".navContainer__logo", 0.5, { opacity: 1 });
+      gsap.fromTo(
+        `.${mainNav.classList[0]}`,
+        0.5,
+        { opacity: 1 },
+        { opacity: 0 }
+      );
+      gsap.fromTo(
+        `.${phoneMenuBar.classList[0]}`,
+        0.5,
+        { width: "0px" },
+        { width: "45px" }
+      );
+    } else {
+      gsap.fromTo(".navContainer__logo", 0.5, { opacity: 1 }, { opacity: 0 });
+    }
+  } else if (formContainer.getBoundingClientRect().top > -30 && !pageIsTop) {
+    pageIsTop = true;
+    if (window.matchMedia("(min-width: 750px)").matches) {
+      gsap.fromTo(
+        `.${mainNav.classList[0]}`,
+        0.5,
+        { opacity: 0 },
+        { opacity: 1 }
+      );
+      gsap.fromTo(
+        `.${phoneMenuBar.classList[0]}`,
+        0.5,
+        { width: "45px" },
+        { width: "0px" }
+      );
+    } else {
+      gsap.fromTo(".navContainer__logo", 0.5, { opacity: 0 }, { opacity: 1 });
+    }
+  }
+});
+// CHANGE THE PAGE AND SEND THE PROPER SECTION FOR SCROLLING
+goToPageSection = section => {
+  window.document.location = "../index.html" + "?inputLocation=" + section;
+};
+
+// CUSTOM MOUSE CURSOR
+let mouseCursor = document.querySelector(".cursor");
+navLinks = document.querySelectorAll(".mainNav__links");
+window.addEventListener("mousemove", cursor);
+function cursor(e) {
+  mouseCursor.style.top = e.pageY + "px";
+  mouseCursor.style.left = e.pageX + "px";
+}
+navLinks.forEach(link => {
+  link.addEventListener("mouseleave", () => {
+    mouseCursor.classList.remove("linkGrow");
+  });
+  link.addEventListener("mouseover", () => {
+    mouseCursor.classList.add("linkGrow");
+  });
+});
+
+// Form Validation
+let formElement = document.querySelectorAll(".contactForm__element");
+let submitBut = document.querySelector('.contactForm__SubmitBut');
+formValidation = () => {
+  let formValidationFlag = true;
+  formElement.forEach(formEl => {
+    if (formEl.name === "input") {
+      if (formEl.value) {
+        formEl.style.backgroundColor = null;
+        formValidationFlag = formValidationFlag && true;
+      } else {
+        formValidationFlag = false;
+      }
+    } else if (
+      formEl.name == "email" &&
+      /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formEl.value)
+    ) {
+      formValidationFlag = formValidationFlag && true;
+    } else {
+      formValidationFlag = false;
+    }
+  });
+  if (formValidationFlag) {
+    submitBut.disabled = false;
+    submitBut.style.cursor = "pointer";
+  }else {
+    submitBut.disabled = true;
+  }
+};
+
+let sendEmailConfirmBox = document.querySelector('.emailFeedbackMessage');
+submit = () => {
+  formElement.forEach(formEl => {
+    formEl.value = "";
+  });
+  sendEmailConfirmBox.style.display = "block";
+  setTimeout(() => {
+    sendEmailConfirmBox.style.display = "none";
+  }, 5000);
+}
