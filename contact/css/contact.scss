@@ -450,7 +450,7 @@ $openSans: "Open Sans", sans-serif;
       }
     }
   }
-  &__SubmitBut {
+  &__submitBut {
     cursor: not-allowed;
     @include flex(null, center, null);
     padding: 0 0 0 20px;

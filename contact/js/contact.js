@@ -138,7 +138,7 @@ navLinks.forEach(link => {
 
 // Form Validation
 let formElement = document.querySelectorAll(".contactForm__element");
-let submitBut = document.querySelector('.contactForm__SubmitBut');
+let submitBut = document.querySelector(".contactForm__submitBut");
 formValidation = () => {
   let formValidationFlag = true;
   formElement.forEach(formEl => {
@@ -160,14 +160,16 @@ formValidation = () => {
   });
   if (formValidationFlag) {
     submitBut.disabled = false;
+    submitBut.disabled = false;
     submitBut.style.cursor = "pointer";
-  }else {
+  } else {
     submitBut.disabled = true;
+    submitBut.style.cursor = "not-allowed";
   }
 };
 
-let sendEmailConfirmBox = document.querySelector('.emailFeedbackMessage');
-submit = () => {
+let sendEmailConfirmBox = document.querySelector(".emailFeedbackMessage");
+formSubmit = () => {
   formElement.forEach(formEl => {
     formEl.value = "";
   });
@@ -175,4 +177,4 @@ submit = () => {
   setTimeout(() => {
     sendEmailConfirmBox.style.display = "none";
   }, 5000);
-}
+};

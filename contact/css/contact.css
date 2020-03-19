@@ -838,7 +838,7 @@ body {
   }
 }
 
-.contactForm__SubmitBut {
+.contactForm__submitBut {
   cursor: not-allowed;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -856,7 +856,7 @@ body {
 }
 
 @media (max-width: 599px) {
-  .contactForm__SubmitBut {
+  .contactForm__submitBut {
     width: 270px;
     height: 45px;
     background-color: #f1260d;
@@ -867,7 +867,7 @@ body {
 }
 
 @media (max-width: 380px) {
-  .contactForm__SubmitBut {
+  .contactForm__submitBut {
     width: 100%;
     height: 45px;
     background-color: #f1260d;
@@ -877,7 +877,7 @@ body {
 }
 
 @media (min-width: 600px) {
-  .contactForm__SubmitBut {
+  .contactForm__submitBut {
     width: 270px;
     height: 45px;
     background-color: #f1260d;
@@ -888,7 +888,7 @@ body {
 }
 
 @media (min-width: 900px) {
-  .contactForm__SubmitBut {
+  .contactForm__submitBut {
     margin: 40px 0 0 0;
   }
 }

@@ -187,39 +187,37 @@ c49.22-37.35,70.26-105.93,53-173"
         <a href="tel:+37256193750">+372-561-937-50</a>
       </div>
       <form class="contactForm">
-        <fieldset>
-          <div class="contactForm__input contactForm__input--name">
-            <label>What is your name?</label>
-            <input
-              type="text"
-              name="input"
-              class="contactForm__element"
-              onkeyup="formValidation()"
-            />
-          </div>
-          <div class="contactForm__input contactForm__input--email ">
-            <label>What is your email address?</label>
-            <input
-              type="email"
-              name="email"
-              class="contactForm__element"
-              onkeyup="formValidation()"
-            />
-          </div>
-          <div class="contactForm__textArea">
-            <label>Your Message</label>
-            <textarea
-              name="input"
-              class="contactForm__element"
-              onkeyup="formValidation()"
-            ></textarea>
-          </div>
-          <buttom
-            class="contactForm__SubmitBut"
-            onclick="submit()"
-            disabled
-          >Send</buttom>
-        </fieldset>
+        <div class="contactForm__input contactForm__input--name">
+          <label>What is your name?</label>
+          <input
+            type="text"
+            name="input"
+            class="contactForm__element"
+            onkeyup="formValidation()"
+          />
+        </div>
+        <div class="contactForm__input contactForm__input--email ">
+          <label>What is your email address?</label>
+          <input
+            type="email"
+            name="email"
+            required
+            class="contactForm__element"
+            onkeyup="formValidation()"
+          />
+        </div>
+        <div class="contactForm__textArea">
+          <label>Your Message</label>
+          <textarea
+            name="input"
+            required
+            class="contactForm__element"
+            onkeyup="formValidation()"
+          ></textarea>
+        </div>
+        <button class="contactForm__submitBut" onclick="formSubmit()" disabled>
+          Send
+        </button>
       </form>
       <div class="formContainer__followMyWork">
         <span>FOLLOW MY WORK</span>
