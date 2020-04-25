@@ -3,11 +3,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  width: 100%;
-}
 
 @mixin box($width, $height, $backgroundColor, $borderRadius, $border...) {
   width: $width;
@@ -521,9 +516,6 @@ canvas {
   }
   &__img {
     padding: 15px;
-    opacity: 0;
-    min-width: 50px;
-    min-height: 150px;
     &--realState {
       @include for-tablet-portrait-up() {
         @include box(60%, auto, null, null, null);
