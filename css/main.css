@@ -462,8 +462,8 @@ canvas {
 .introduction {
   width: 100vw;
   height: 100vh;
+  background-color: #000000;
   border:;
-  border-radius: #000000;
   position: relative;
 }
 

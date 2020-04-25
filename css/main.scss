@@ -295,7 +295,7 @@ canvas {
 
 // INTRODUCTION BANNER
 .introduction {
-  @include box(100vw, 100vh, null, #000000, null);
+  @include box(100vw, 100vh, #000000, null, null);
   position: relative;
   &__text {
     position: absolute;
