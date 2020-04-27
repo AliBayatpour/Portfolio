@@ -221,7 +221,7 @@ menuClicked = () => {
       { background: hamburgerMenuBackground },
       { background: "white" }
     );
-    document.body.style.overflowY = "scroll";
+    document.body.style.overflowY = null;
     menuShows = false;
   } else {
     gsap.fromTo(
@@ -255,7 +255,7 @@ menuClicked = () => {
       { background: "white" },
       { background: hamburgerMenuBackground }
     );
-    document.body.style.overflowY = "hidden";
+    document.body.style.overflow = "hidden";
     menuShows = true;
   }
 };
@@ -422,7 +422,6 @@ navLinks.forEach(link => {
 });
 
 showButs = (elem, but) => {
-  document.querySelector(elem).style.display = "flex";
   gsap.fromTo(but, 1, { opacity: 0 }, { opacity: 1 });
 };
 hideButs = (elem, but) => {
@@ -432,9 +431,6 @@ hideButs = (elem, but) => {
     { opacity: 1 },
     {
       opacity: 0,
-      onComplete: () => {
-        document.querySelector(elem).style.display = "none";
-      }
     }
   );
 };

@@ -3,6 +3,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 100%;
+}
 
 @mixin box($width, $height, $backgroundColor, $borderRadius, $border...) {
   width: $width;
@@ -295,7 +300,7 @@ canvas {
 
 // INTRODUCTION BANNER
 .introduction {
-  @include box(100vw, 100vh, #000000, null, null);
+  @include box(100%, 100%, null, null, null);
   position: relative;
   &__text {
     position: absolute;
@@ -501,7 +506,6 @@ canvas {
       @include flex(center, center, null);
       position: absolute;
       transition: 0.5s;
-      display: none;
     }
     &__btn {
       text-decoration: none;
@@ -512,10 +516,19 @@ canvas {
       text-align: center;
       padding: 3px;
       margin: 0 10px;
+      z-index: 2;
+      opacity: 0;
+      transition: all 250ms;
+      &:hover {
+        box-shadow: white 0 0 10px 0;
+        transform: scale(1.1);
+      }
     }
   }
   &__img {
     padding: 15px;
+    min-width: 50px;
+    min-height: 150px;
     &--realState {
       @include for-tablet-portrait-up() {
         @include box(60%, auto, null, null, null);
@@ -565,7 +578,6 @@ canvas {
       rgba(204, 204, 204, 0.5) 6px
     );
     @include flex(center, center, null);
-    flex-direction: column;
     margin: 0 0 60px 0;
     padding: 5px 10px;
     @include for-phone-only() {

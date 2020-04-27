@@ -9,7 +9,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/main.css" />
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
     <div class="cursor"><span class="cursor__dot"></span></div>
@@ -130,12 +129,12 @@ c49.22-37.35,70.26-105.93,53-173"
               <a href="#">ABOUT ME</a>
             </li>
             <li class="mainNav__links">
-              <a href="./contact/contact.html">CONTACT</a>
+              <a onclick="goToSection('.footer__info')">CONTACT</a>
             </li>
           </ul>
         </div>
         <div class="navContainer__bookAppointment">
-          <a href="./contact/contact.html">BOOK AN APPOINTMENT</a>
+          <a href="https://github.com/AliBayatpour">My GitHub</a>
         </div>
         <div class="phoneMenuBar" onclick="menuClicked()">
           <span class="phoneMenuBar__line phoneMenuBar__line--topLine"></span>
@@ -163,7 +162,7 @@ c49.22-37.35,70.26-105.93,53-173"
             ABOUT ME
           </li>
           <li class="munuDropdown__li munuDropdown__li--link">
-            <a href="./contact/contact.html">CONTACT</a>
+            <a onclick="goToSection('.footer__info')">CONTACT</a>
           </li>
         </ul>
         <a
@@ -184,9 +183,8 @@ c49.22-37.35,70.26-105.93,53-173"
           >ALI BAYATPOUR FRONT-END DEVELOPER TALLINN</span
         >
         <span class="introduction__adTxt"
-          >A front-end developer. Bachelor in Software Engineering. Studying MBA
-          at Taltech University located in the beautiful capital of
-          Estonia</span
+          >A front-end developer. Bachelor in Software Engineering. living in
+          Tallinn, the beautiful capital of Estonia</span
         >
         <div class="aboutMe" onclick="goToSection('.footer__aboutMe')">
           ABOUT ME
@@ -228,7 +226,9 @@ c49.22-37.35,70.26-105.93,53-173"
             disruptive brands and start-ups, get in touch to find out if you're
             next.
           </p>
-          <a class="portfolio__adTalkToHuman" href="./contact/contact.html"
+          <a
+            class="portfolio__adTalkToHuman"
+            onclick="goToSection('.footer__info')"
             >SEND ME A MESSAGE</a
           >
         </div>
@@ -263,7 +263,7 @@ c49.22-37.35,70.26-105.93,53-173"
         I always try to Be humble but hungry and the hardest worker in the room.
       </h3>
       <a
-        href="./contact/contact.html"
+        onclick="goToSection('.footer__info')"
         class="praising__botton"
         onmouseenter="movingArrow()"
         onmouseleave="stopArrow()"
@@ -274,7 +274,9 @@ c49.22-37.35,70.26-105.93,53-173"
     <div class="secAd section">
       <div class="secAd__preHeader">Lets work together</div>
       <h1 class="secAd__header">My launch pad is ready and waiting</h1>
-      <a href="./contact/contact.html" class="secAd__meet">ARRANGE A MEETING</a>
+      <a onclick="goToSection('.footer__info')" class="secAd__meet"
+        >ARRANGE A MEETING</a
+      >
     </div>
     <footer>
       <div class="footer section">
@@ -305,6 +307,9 @@ c49.22-37.35,70.26-105.93,53-173"
             ><a href="https://www.linkedin.com/in/ali-bayatpour-b0179912a/"
               ><i class="fab fa-facebook-square"></i
             ></a>
+            <a href="https://github.com/AliBayatpour">
+              <i class="fab fa-github"></i>
+            </a>
           </div>
           <div class="footer__contact">
             <h4 class="footer__contactHeader">Have a project?</h4>
@@ -322,5 +327,6 @@ c49.22-37.35,70.26-105.93,53-173"
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/ScrollToPlugin.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
     <script src="./js/canvas.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </body>
 </html>
