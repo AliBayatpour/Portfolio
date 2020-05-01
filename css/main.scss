@@ -619,7 +619,8 @@ canvas {
       rgba(204, 204, 204, 0.5) 5px,
       rgba(204, 204, 204, 0.5) 6px
     );
-    @include flex(null, null, null);
+    display: flex;
+    flex-direction: column;
     margin: 0 0 60px 0;
     padding: 5px 10px;
     @include for-phone-only() {
@@ -682,20 +683,20 @@ canvas {
       }
     }
   }
-  &__adTalkToHuman {
+  &__seeResume {
     text-decoration: none;
     cursor: pointer;
     @include for-tablet-portrait-up() {
-      @include box(50%, 45px, #f1260d, null, null);
+      @include box(35%, 45px, #f1260d, null, null);
       @include font(14px, 500, null, #ffffff);
       @include flex(center, center, null);
-      margin: 0 0 5px 0;
+      margin: 10px 0;
     }
     @include for-phone-only() {
       @include box(100%, 45px, #f1260d, null, null);
       @include font(14px, 500, null, #ffffff);
       @include flex(center, center, null);
-      margin: 0 0 5px 0;
+      margin: 10px 0;
     }
   }
 }
