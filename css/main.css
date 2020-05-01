@@ -3,6 +3,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 
 body {
@@ -169,7 +170,6 @@ body {
 }
 
 .navContainer .mainNav ul li a {
-  font-family: "Open Sans", sans-serif;
   font-size: 15px;
   font-weight: 600;
   color: #ffffff;
@@ -272,7 +272,6 @@ body {
 
 @media (min-width: 600px) {
   .navContainer__bookAppointment a {
-    font-family: "Open Sans", sans-serif;
     font-size: 15px;
     font-weight: 600;
     color: #ffffff;
@@ -396,17 +395,16 @@ body {
 }
 
 .munuDropdown__li {
-  font-family: "Open Sans", sans-serif;
   font-size: 25px;
   font-weight: 600;
   color: #222222;
   list-style: none;
+  cursor: pointer;
   margin: 10px 0;
 }
 
 .munuDropdown__li--link a {
   text-decoration: none;
-  font-family: "Open Sans", sans-serif;
   font-size: 25px;
   font-weight: 600;
   color: #222222;
@@ -451,7 +449,6 @@ body {
 }
 
 .munuDropdown__addInfo {
-  font-family: "Open Sans", sans-serif;
   font-size: 15px;
   color: #f1260d;
   margin: 0 0 10px 0;
@@ -516,7 +513,6 @@ canvas {
 
 @media (max-width: 599px) {
   .introduction__intro {
-    font-family: "Open Sans", sans-serif;
     font-size: 12px;
     font-weight: 600;
     color: #cfcfcf;
@@ -526,7 +522,6 @@ canvas {
 
 @media (min-width: 600px) {
   .introduction__intro {
-    font-family: "Open Sans", sans-serif;
     font-size: 15px;
     font-weight: 600;
     color: #cfcfcf;
@@ -543,7 +538,6 @@ canvas {
 
 @media (max-width: 599px) {
   .introduction__adTxt {
-    font-family: "Open Sans", sans-serif;
     font-size: 25px;
     font-weight: 700;
     color: #ffffff;
@@ -552,7 +546,6 @@ canvas {
 
 @media (max-width: 380px) {
   .introduction__adTxt {
-    font-family: "Open Sans", sans-serif;
     font-size: 22px;
     font-weight: 700;
     color: #ffffff;
@@ -561,7 +554,6 @@ canvas {
 
 @media (min-width: 600px) {
   .introduction__adTxt {
-    font-family: "Open Sans", sans-serif;
     font-size: 35px;
     font-weight: 700;
     color: #ffffff;
@@ -631,7 +623,6 @@ canvas {
 }
 
 .munuDropdown__li {
-  font-family: "Open Sans", sans-serif;
   font-size: 25px;
   font-weight: 600;
   color: #222222;
@@ -641,7 +632,6 @@ canvas {
 
 .munuDropdown__li--contact a {
   text-decoration: none;
-  font-family: "Open Sans", sans-serif;
   font-size: 25px;
   font-weight: 600;
   color: #222222;
@@ -686,7 +676,6 @@ canvas {
 }
 
 .munuDropdown__addInfo {
-  font-family: "Open Sans", sans-serif;
   font-size: 15px;
   color: #f1260d;
   margin: 0 0 10px 0;
@@ -714,7 +703,6 @@ canvas {
     height: 45px;
     background-color: #f1260d;
     border:;
-    font-family: "Open Sans", sans-serif;
     font-size: 13px;
     font-weight: 500;
     color: #ffffff;
@@ -728,7 +716,6 @@ canvas {
     height: 45px;
     background-color: #f1260d;
     border:;
-    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #ffffff;
@@ -769,13 +756,13 @@ canvas {
 
 @media (max-width: 599px) {
   .portfolio__container {
-    padding: 0 40px;
+    padding: 0 25px;
   }
 }
 
 @media (min-width: 600px) {
   .portfolio__container {
-    padding: 0 50px;
+    padding: 0 40px;
   }
 }
 
@@ -790,6 +777,13 @@ canvas {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    padding: 0 25px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .portfolio__container {
+    padding: 0 40px;
   }
 }
 
@@ -811,7 +805,6 @@ canvas {
 
 @media (max-width: 599px) {
   .portfolio__header h1 {
-    font-family: "Open Sans", sans-serif;
     font-size: 28px;
     font-weight: 600;
     color: #121212;
@@ -820,7 +813,6 @@ canvas {
 
 @media (min-width: 600px) {
   .portfolio__header h1 {
-    font-family: "Open Sans", sans-serif;
     font-size: 30px;
     font-weight: 600;
     color: #121212;
@@ -829,7 +821,6 @@ canvas {
 
 @media (max-width: 599px) {
   .portfolio__subHeaderTxt {
-    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     color: #555555;
     margin: 0 0 50px 0;
@@ -840,7 +831,6 @@ canvas {
   .portfolio__subHeaderTxt {
     width: 100%;
     border:;
-    font-family: "Open Sans", sans-serif;
     font-size: 15px;
     color: #555555;
     margin: 0 0 50px 0;
@@ -937,7 +927,6 @@ canvas {
   background-color: rgba(241, 38, 13, 0.9);
   border:;
   border-radius: 50%;
-  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: #ffffff;
@@ -1146,12 +1135,6 @@ canvas {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   margin: 0 0 60px 0;
   padding: 5px 10px;
 }
@@ -1173,7 +1156,6 @@ canvas {
 @media (min-width: 750px) {
   .portfolio__ad {
     width: 45%;
-    height: 280px;
     border:;
     margin: 0 15px 60px 15px;
   }
@@ -1187,7 +1169,6 @@ canvas {
 
 @media (min-width: 600px) {
   .portfolio__adHeader {
-    font-family: "Open Sans", sans-serif;
     font-size: 30px;
     font-weight: 600;
     color: #000000;
@@ -1196,7 +1177,6 @@ canvas {
 
 @media (max-width: 599px) {
   .portfolio__adHeader {
-    font-family: "Open Sans", sans-serif;
     font-size: 30px;
     font-weight: 600;
     color: #000000;
@@ -1210,7 +1190,6 @@ canvas {
 
 @media (min-width: 600px) {
   .portfolio__adPara {
-    font-family: "Open Sans", sans-serif;
     font-size: 15px;
     font-weight: 500;
     color: #000000;
@@ -1220,11 +1199,63 @@ canvas {
 
 @media (max-width: 599px) {
   .portfolio__adPara {
-    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #000000;
     margin: 0 0 21px 0;
+  }
+}
+
+.portfolio__skillsContainer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.portfolio__skillsContainer h3 {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.portfolio__skillSvg {
+  opacity: 0;
+}
+
+.portfolio__skillWrapper {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 5px 0;
+}
+
+@media (max-width: 599px) {
+  .portfolio__skillWrapper span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+  }
+}
+
+@media (max-width: 380px) {
+  .portfolio__skillWrapper span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #000000;
+  }
+}
+
+@media (min-width: 600px) {
+  .portfolio__skillWrapper span {
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
   }
 }
 
@@ -1239,7 +1270,6 @@ canvas {
     height: 45px;
     background-color: #f1260d;
     border:;
-    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #ffffff;
@@ -1264,7 +1294,6 @@ canvas {
     height: 45px;
     background-color: #f1260d;
     border:;
-    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #ffffff;
@@ -1329,7 +1358,6 @@ canvas {
 }
 
 .praising__txt h3 {
-  font-family: "Open Sans", sans-serif;
   font-size: 40px;
   font-weight: bold;
   color: #ffffff;
@@ -1338,7 +1366,6 @@ canvas {
 
 @media (max-width: 599px) {
   .praising__txt h3 {
-    font-family: "Open Sans", sans-serif;
     font-size: 30px;
     font-weight: bold;
     color: #ffffff;
@@ -1347,7 +1374,6 @@ canvas {
 
 @media (max-width: 380px) {
   .praising__txt h3 {
-    font-family: "Open Sans", sans-serif;
     font-size: 25px;
     font-weight: bold;
     color: #ffffff;
@@ -1356,7 +1382,6 @@ canvas {
 
 @media (min-width: 600px) {
   .praising__txt h3 {
-    font-family: "Open Sans", sans-serif;
     font-size: 30px;
     font-weight: bold;
     color: #ffffff;
@@ -1365,7 +1390,6 @@ canvas {
 
 @media (min-width: 750px) {
   .praising__txt h3 {
-    font-family: "Open Sans", sans-serif;
     font-size: 40px;
     font-weight: bold;
     color: #ffffff;
@@ -1388,7 +1412,6 @@ canvas {
 
 @media (max-width: 599px) {
   .praising__txt ul li {
-    font-family: "Open Sans", sans-serif;
     font-size: 18px;
     font-weight: bold;
     color: #ffffff;
@@ -1398,7 +1421,6 @@ canvas {
 
 @media (max-width: 380px) {
   .praising__txt ul li {
-    font-family: "Open Sans", sans-serif;
     font-size: 16px;
     font-weight: bold;
     color: #ffffff;
@@ -1408,7 +1430,6 @@ canvas {
 @media (min-width: 600px) {
   .praising__txt ul li {
     margin: 10px 0;
-    font-family: "Open Sans", sans-serif;
     font-size: 20px;
     font-weight: bold;
     color: #ffffff;
@@ -1417,7 +1438,6 @@ canvas {
 
 @media (min-width: 1200px) {
   .praising__txt ul li {
-    font-family: "Open Sans", sans-serif;
     font-size: 25px;
     font-weight: bold;
     color: #ffffff;
@@ -1437,7 +1457,6 @@ canvas {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 600;
   color: #ffffff;
@@ -1513,7 +1532,6 @@ canvas {
 
 @media (min-width: 600px) {
   .secAd__preHeader {
-    font-family: "Open Sans", sans-serif;
     font-size: 15px;
     color: #f1260d;
     margin: 0 0 30px 0;
@@ -1522,7 +1540,6 @@ canvas {
 
 @media (max-width: 599px) {
   .secAd__preHeader {
-    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     color: #f1260d;
     margin: 0 0 30px 0;
@@ -1535,7 +1552,6 @@ canvas {
 }
 
 .secAd__header h3 {
-  font-family: "Open Sans", sans-serif;
   font-size: 40px;
   font-weight: bold;
   color: #000000;
@@ -1544,7 +1560,6 @@ canvas {
 
 @media (max-width: 599px) {
   .secAd__header h3 {
-    font-family: "Open Sans", sans-serif;
     font-size: 30px;
     font-weight: bold;
     color: #000000;
@@ -1553,7 +1568,6 @@ canvas {
 
 @media (max-width: 380px) {
   .secAd__header h3 {
-    font-family: "Open Sans", sans-serif;
     font-size: 25px;
     font-weight: bold;
     color: #000000;
@@ -1562,7 +1576,6 @@ canvas {
 
 @media (min-width: 600px) {
   .secAd__header h3 {
-    font-family: "Open Sans", sans-serif;
     font-size: 30px;
     font-weight: bold;
     color: #000000;
@@ -1571,7 +1584,6 @@ canvas {
 
 @media (min-width: 750px) {
   .secAd__header h3 {
-    font-family: "Open Sans", sans-serif;
     font-size: 40px;
     font-weight: bold;
     color: #000000;
@@ -1594,7 +1606,6 @@ canvas {
 
 @media (max-width: 599px) {
   .secAd__header ul li {
-    font-family: "Open Sans", sans-serif;
     font-size: 18px;
     font-weight: bold;
     color: #000000;
@@ -1604,7 +1615,6 @@ canvas {
 
 @media (max-width: 380px) {
   .secAd__header ul li {
-    font-family: "Open Sans", sans-serif;
     font-size: 16px;
     font-weight: bold;
     color: #000000;
@@ -1613,7 +1623,6 @@ canvas {
 
 @media (min-width: 600px) {
   .secAd__header ul li {
-    font-family: "Open Sans", sans-serif;
     font-size: 20px;
     font-weight: bold;
     color: #000000;
@@ -1623,7 +1632,6 @@ canvas {
 
 @media (min-width: 750px) {
   .secAd__header ul li {
-    font-family: "Open Sans", sans-serif;
     font-size: 20px;
     font-weight: bold;
     color: #000000;
@@ -1632,7 +1640,6 @@ canvas {
 
 @media (min-width: 1200px) {
   .secAd__header ul li {
-    font-family: "Open Sans", sans-serif;
     font-size: 25px;
     font-weight: bold;
     color: #000000;
@@ -1649,7 +1656,6 @@ canvas {
     height: 45px;
     background-color: #f1260d;
     border:;
-    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #ffffff;
@@ -1675,7 +1681,6 @@ canvas {
     height: 45px;
     background-color: #f1260d;
     border:;
-    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     font-weight: 500;
     color: #ffffff;
@@ -1764,7 +1769,6 @@ canvas {
 
 @media (min-width: 600px) {
   .footer__aboutMe h1 {
-    font-family: "Open Sans", sans-serif;
     font-size: 30px;
     color: #ffffff;
     margin: 0 0 45px 0;
@@ -1773,7 +1777,6 @@ canvas {
 
 @media (max-width: 599px) {
   .footer__aboutMe h1 {
-    font-family: "Open Sans", sans-serif;
     font-size: 28px;
     color: #ffffff;
     margin: 0 0 45px 0;
@@ -1782,7 +1785,6 @@ canvas {
 
 @media (min-width: 600px) {
   .footer__aboutMe p {
-    font-family: "Open Sans", sans-serif;
     font-size: 14px;
     color: #cfcfcf;
     line-height: 28px;
@@ -1791,7 +1793,6 @@ canvas {
 
 @media (max-width: 599px) {
   .footer__aboutMe p {
-    font-family: "Open Sans", sans-serif;
     font-size: 13.5px;
     color: #cfcfcf;
     line-height: 28px;
@@ -1800,7 +1801,6 @@ canvas {
 
 @media (min-width: 750px) {
   .footer__aboutMe p {
-    font-family: "Open Sans", sans-serif;
     font-size: 15px;
     color: #cfcfcf;
   }
@@ -1834,6 +1834,7 @@ canvas {
 
 .footer__socialMedia a {
   text-decoration: none;
+  cursor: pointer;
 }
 
 .footer__socialMedia i {
@@ -1868,7 +1869,6 @@ canvas {
 
 @media (min-width: 600px) {
   .footer__contact h4 {
-    font-family: "Open Sans", sans-serif;
     font-size: 17px;
     font-weight: 500;
     color: #ffffff;
@@ -1878,7 +1878,6 @@ canvas {
 
 @media (max-width: 599px) {
   .footer__contact h4 {
-    font-family: "Open Sans", sans-serif;
     font-size: 15px;
     font-weight: 500;
     color: #ffffff;
@@ -1888,7 +1887,6 @@ canvas {
 
 @media (min-width: 600px) {
   .footer__contact a {
-    font-family: "Open Sans", sans-serif;
     font-size: 16px;
     color: #f1260d;
     margin: 0 0 10px 0;
@@ -1898,7 +1896,6 @@ canvas {
 
 @media (max-width: 599px) {
   .footer__contact a {
-    font-family: "Open Sans", sans-serif;
     font-size: 15px;
     color: #f1260d;
     margin: 0 0 10px 0;
@@ -1908,7 +1905,6 @@ canvas {
 
 @media (min-width: 600px) {
   .footer__copyright {
-    font-family: "Open Sans", sans-serif;
     font-size: 12px;
     color: #cfcfcf;
   }
@@ -1916,7 +1912,6 @@ canvas {
 
 @media (max-width: 599px) {
   .footer__copyright {
-    font-family: "Open Sans", sans-serif;
     font-size: 12px;
     color: #cfcfcf;
   }

@@ -395,6 +395,30 @@ sections.forEach((sec) => {
   sectionObserver.observe(sec);
 });
 
+// Intersection observer for animating skilled Icons
+const skilledContainer = document.querySelector(".portfolio__ad");
+const skillOptions = {
+  root: null,
+  threshold: 0.3,
+  rootMargin: "0px",
+};
+const skilledObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      gsap.fromTo(
+        ".portfolio__skillSvg",
+        2,
+        { y: "-100vh, opacity: 0" },
+        { y: "0%", opacity:1, ease: "bounce.out", stagger: 0.2 }
+      );
+      console.log("intersect");
+      observer.unobserve(entry.target);
+    } else {
+      console.log("not intersect");
+    }
+  });
+}, skillOptions);
+skilledObserver.observe(skilledContainer);
 // GO TO ABOUT ME
 goToSection = (elem) => {
   if (menuShows) {

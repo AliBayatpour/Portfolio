@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
 }
 body {
   overflow-x: hidden;
@@ -28,8 +29,7 @@ body {
 // FONTS
 $openSans: "Open Sans", sans-serif;
 
-@mixin font($family, $size, $weight, $style, $color) {
-  font-family: $family;
+@mixin font($size, $weight, $style, $color) {
   font-size: $size;
   font-weight: $weight;
   color: $color;
@@ -160,7 +160,7 @@ $openSans: "Open Sans", sans-serif;
         list-style: none;
         margin: 0 5px;
         a {
-          @include font($openSans, 15px, 600, null, #ffffff);
+          @include font(15px, 600, null, #ffffff);
           text-decoration: none;
           padding: 0 15px;
           cursor: pointer;
@@ -211,7 +211,7 @@ $openSans: "Open Sans", sans-serif;
     }
     a {
       @include for-tablet-portrait-up() {
-        @include font($openSans, 15px, 600, null, #ffffff);
+        @include font(15px, 600, null, #ffffff);
         text-decoration-color: #f1260d;
       }
     }
@@ -262,13 +262,14 @@ $openSans: "Open Sans", sans-serif;
     right: -100%;
   }
   &__li {
-    @include font($openSans, 25px, 600, null, #222222);
+    @include font(25px, 600, null, #222222);
     list-style: none;
+    cursor: pointer;
     margin: 10px 0;
     &--link {
       a {
         text-decoration: none;
-        @include font($openSans, 25px, 600, null, #222222);
+        @include font(25px, 600, null, #222222);
       }
     }
   }
@@ -286,7 +287,7 @@ $openSans: "Open Sans", sans-serif;
     }
   }
   &__addInfo {
-    @include font($openSans, 15px, null, null, #f1260d);
+    @include font(15px, null, null, #f1260d);
     margin: 0 0 10px 0;
     display: block;
   }
@@ -323,11 +324,11 @@ canvas {
   }
   &__intro {
     @include for-phone-only() {
-      @include font($openSans, 12px, 600, null, #cfcfcf);
+      @include font(12px, 600, null, #cfcfcf);
       margin: 35px 0 0 0;
     }
     @include for-tablet-portrait-up() {
-      @include font($openSans, 15px, 600, null, #cfcfcf);
+      @include font(15px, 600, null, #cfcfcf);
       @include box(100%, null, null, null, null);
       margin: 35px 0 0 0;
     }
@@ -336,19 +337,19 @@ canvas {
     display: block;
     margin: 35px 0 0 0;
     @include for-phone-only() {
-      @include font($openSans, 25px, 700, null, #ffffff);
+      @include font(25px, 700, null, #ffffff);
     }
     @include for-extra-small-phone-only() {
-      @include font($openSans, 22px, 700, null, #ffffff);
+      @include font(22px, 700, null, #ffffff);
     }
     @include for-tablet-portrait-up() {
-      @include font($openSans, 35px, 700, null, #ffffff);
+      @include font(35px, 700, null, #ffffff);
     }
     @include for-tablet-landscape-up() {
-      @include font(null, 45px, null, null, null);
+      @include font(45px, null, null, null);
     }
     @include for-desktop-up() {
-      @include font(null, 50px, null, null, null);
+      @include font(50px, null, null, null);
     }
   }
 }
@@ -376,13 +377,13 @@ canvas {
     right: -100%;
   }
   &__li {
-    @include font($openSans, 25px, 600, null, #222222);
+    @include font(25px, 600, null, #222222);
     list-style: none;
     margin: 10px 0;
     &--contact {
       a {
         text-decoration: none;
-        @include font($openSans, 25px, 600, null, #222222);
+        @include font(25px, 600, null, #222222);
       }
     }
   }
@@ -400,7 +401,7 @@ canvas {
     }
   }
   &__addInfo {
-    @include font($openSans, 15px, null, null, #f1260d);
+    @include font(15px, null, null, #f1260d);
     margin: 0 0 10px 0;
     display: block;
   }
@@ -411,12 +412,12 @@ canvas {
   @include flex(center, center, null);
   @include for-phone-only() {
     @include box(100%, 45px, #f1260d, null, null);
-    @include font($openSans, 13px, 500, null, #ffffff);
+    @include font(13px, 500, null, #ffffff);
     margin: 40px 0 0 0;
   }
   @include for-tablet-portrait-up() {
     @include box(280px, 45px, #f1260d, null, null);
-    @include font($openSans, 14px, 500, null, #ffffff);
+    @include font(14px, 500, null, #ffffff);
     margin: 40px 0 0 0;
   }
 }
@@ -434,13 +435,17 @@ canvas {
   }
   &__container {
     @include for-phone-only() {
-      padding: 0 40px;
+      padding: 0 25px;
     }
     @include for-tablet-portrait-up() {
-      padding: 0 50px;
+      padding: 0 40px;
     }
     @include for-additional-tablet-up() {
       @include flex(null, null, row);
+      padding: 0 25px;
+    }
+    @include for-desktop-up() {
+      padding: 0 40px;
     }
   }
   &__header {
@@ -454,21 +459,21 @@ canvas {
     }
     h1 {
       @include for-phone-only() {
-        @include font($openSans, 28px, 600, null, #121212);
+        @include font(28px, 600, null, #121212);
       }
       @include for-tablet-portrait-up() {
-        @include font($openSans, 30px, 600, null, #121212);
+        @include font(30px, 600, null, #121212);
       }
     }
   }
   &__subHeaderTxt {
     @include for-phone-only() {
-      @include font($openSans, 14px, null, null, #555555);
+      @include font(14px, null, null, #555555);
       margin: 0 0 50px 0;
     }
     @include for-tablet-portrait-up() {
       @include box(100%, null, null, null, null);
-      @include font($openSans, 15px, null, null, #555555);
+      @include font(15px, null, null, #555555);
       margin: 0 0 50px 0;
     }
   }
@@ -512,7 +517,7 @@ canvas {
       text-decoration: none;
       cursor: pointer;
       @include box(80px, 80px, rgba(241, 38, 13, 0.9), 50%, null);
-      @include font($openSans, 14px, 600, null, #ffffff);
+      @include font(14px, 600, null, #ffffff);
       @include flex(center, center, null);
       text-align: center;
       padding: 3px;
@@ -614,7 +619,7 @@ canvas {
       rgba(204, 204, 204, 0.5) 5px,
       rgba(204, 204, 204, 0.5) 6px
     );
-    @include flex(center, center, null);
+    @include flex(null, null, null);
     margin: 0 0 60px 0;
     padding: 5px 10px;
     @include for-phone-only() {
@@ -624,7 +629,7 @@ canvas {
       @include box(100%, null, null, null, null);
     }
     @include for-additional-tablet-up() {
-      @include box(45%, 280px, null, null, null);
+      @include box(45%, null, null, null, null);
       margin: 0 15px 60px 15px;
     }
   }
@@ -632,21 +637,49 @@ canvas {
     @include box(100%, null, null, null, null);
     margin: 0 0 21px 0;
     @include for-tablet-portrait-up() {
-      @include font($openSans, 30px, 600, null, #000000);
+      @include font(30px, 600, null, #000000);
     }
     @include for-phone-only() {
-      @include font($openSans, 30px, 600, null, #000000);
+      @include font(30px, 600, null, #000000);
     }
   }
   &__adPara {
     @include box(100%, null, null, null, null);
     @include for-tablet-portrait-up() {
-      @include font($openSans, 15px, 500, null, #000000);
+      @include font(15px, 500, null, #000000);
       margin: 0 0 21px 0;
     }
     @include for-phone-only() {
-      @include font($openSans, 14px, 500, null, #000000);
+      @include font(14px, 500, null, #000000);
       margin: 0 0 21px 0;
+    }
+  }
+  &__skillsContainer {
+    width: 100%;
+    @include flex(null, null, null);
+    h3 {
+      width: 100%;
+      margin: 15px 0;
+    }
+  }
+  &__skillSvg {
+    opacity: 0;
+  }
+  &__skillWrapper {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    span {
+      @include for-phone-only() {
+        @include font(16px, 500, null, #000000);
+      }
+      @include for-extra-small-phone-only() {
+        @include font(14px, 500, null, #000000);
+      }
+      @include for-tablet-portrait-up(){
+        @include font(16px, 500, null, #000000);
+      }
     }
   }
   &__adTalkToHuman {
@@ -654,13 +687,13 @@ canvas {
     cursor: pointer;
     @include for-tablet-portrait-up() {
       @include box(50%, 45px, #f1260d, null, null);
-      @include font($openSans, 14px, 500, null, #ffffff);
+      @include font(14px, 500, null, #ffffff);
       @include flex(center, center, null);
       margin: 0 0 5px 0;
     }
     @include for-phone-only() {
       @include box(100%, 45px, #f1260d, null, null);
-      @include font($openSans, 14px, 500, null, #ffffff);
+      @include font(14px, 500, null, #ffffff);
       @include flex(center, center, null);
       margin: 0 0 5px 0;
     }
@@ -682,19 +715,19 @@ canvas {
   &__txt {
     margin: auto 0;
     h3 {
-      @include font($openSans, 40px, bold, null, #ffffff);
+      @include font(40px, bold, null, #ffffff);
       margin: 0 0 15px 0;
       @include for-phone-only() {
-        @include font($openSans, 30px, bold, null, #ffffff);
+        @include font(30px, bold, null, #ffffff);
       }
       @include for-extra-small-phone-only() {
-        @include font($openSans, 25px, bold, null, #ffffff);
+        @include font(25px, bold, null, #ffffff);
       }
       @include for-tablet-portrait-up() {
-        @include font($openSans, 30px, bold, null, #ffffff);
+        @include font(30px, bold, null, #ffffff);
       }
       @include for-additional-tablet-up() {
-        @include font($openSans, 40px, bold, null, #ffffff);
+        @include font(40px, bold, null, #ffffff);
       }
     }
     ul {
@@ -705,18 +738,18 @@ canvas {
           margin: 3px 5px 0 0;
         }
         @include for-phone-only() {
-          @include font($openSans, 18px, bold, null, #ffffff);
+          @include font(18px, bold, null, #ffffff);
           margin: 10px 0;
         }
         @include for-extra-small-phone-only() {
-          @include font($openSans, 16px, bold, null, #ffffff);
+          @include font(16px, bold, null, #ffffff);
         }
         @include for-tablet-portrait-up() {
           margin: 10px 0;
-          @include font($openSans, 20px, bold, null, #ffffff);
+          @include font(20px, bold, null, #ffffff);
         }
         @include for-desktop-up() {
-          @include font($openSans, 25px, bold, null, #ffffff);
+          @include font(25px, bold, null, #ffffff);
         }
       }
     }
@@ -724,7 +757,7 @@ canvas {
   &__botton {
     @include box(80%, 45px, #f1260d, null, null);
     @include flex(null, center, null);
-    @include font($openSans, 14px, 600, null, #ffffff);
+    @include font(14px, 600, null, #ffffff);
     text-decoration: none;
     cursor: pointer;
     @include for-phone-only() {
@@ -735,7 +768,7 @@ canvas {
       margin: 0 auto auto 0;
     }
     i {
-      @include font(null, 18px, 600, null, #ffffff);
+      @include font(18px, 600, null, #ffffff);
       margin: 0 0 0 auto;
     }
   }
@@ -755,11 +788,11 @@ canvas {
   &__preHeader {
     @include box(100%, null, null, null, null);
     @include for-tablet-portrait-up() {
-      @include font($openSans, 15px, null, null, #f1260d);
+      @include font(15px, null, null, #f1260d);
       margin: 0 0 30px 0;
     }
     @include for-phone-only() {
-      @include font($openSans, 14px, null, null, #f1260d);
+      @include font(14px, null, null, #f1260d);
       margin: 0 0 30px 0;
     }
   }
@@ -767,19 +800,19 @@ canvas {
     margin: auto 0;
     width: 100%;
     h3 {
-      @include font($openSans, 40px, bold, null, #000000);
+      @include font(40px, bold, null, #000000);
       margin: 0 0 15px 0;
       @include for-phone-only() {
-        @include font($openSans, 30px, bold, null, #000000);
+        @include font(30px, bold, null, #000000);
       }
       @include for-extra-small-phone-only() {
-        @include font($openSans, 25px, bold, null, #000000);
+        @include font(25px, bold, null, #000000);
       }
       @include for-tablet-portrait-up() {
-        @include font($openSans, 30px, bold, null, #000000);
+        @include font(30px, bold, null, #000000);
       }
       @include for-additional-tablet-up() {
-        @include font($openSans, 40px, bold, null, #000000);
+        @include font(40px, bold, null, #000000);
       }
     }
     ul {
@@ -790,21 +823,21 @@ canvas {
           margin: 3px 5px 0 0;
         }
         @include for-phone-only() {
-          @include font($openSans, 18px, bold, null, #000000);
+          @include font(18px, bold, null, #000000);
           margin: 5px 0;
         }
         @include for-extra-small-phone-only() {
-          @include font($openSans, 16px, bold, null, #000000);
+          @include font(16px, bold, null, #000000);
         }
         @include for-tablet-portrait-up() {
-          @include font($openSans, 20px, bold, null, #000000);
+          @include font(20px, bold, null, #000000);
           margin: 10px 0;
         }
         @include for-additional-tablet-up() {
-          @include font($openSans, 20px, bold, null, #000000);
+          @include font(20px, bold, null, #000000);
         }
         @include for-desktop-up() {
-          @include font($openSans, 25px, bold, null, #000000);
+          @include font(25px, bold, null, #000000);
         }
       }
     }
@@ -813,14 +846,14 @@ canvas {
     text-decoration: none;
     @include for-tablet-portrait-up() {
       @include box(280px, 45px, #f1260d, null, null);
-      @include font($openSans, 14px, 500, null, #ffffff);
+      @include font(14px, 500, null, #ffffff);
       @include flex(center, center, null);
       margin: 30px auto 5px 0;
       cursor: pointer;
     }
     @include for-phone-only() {
       @include box(100%, 45px, #f1260d, null, null);
-      @include font($openSans, 14px, 500, null, #ffffff);
+      @include font(14px, 500, null, #ffffff);
       @include flex(center, center, null);
       margin: 30px 0 5px 0;
     }
@@ -858,25 +891,25 @@ canvas {
     }
     h1 {
       @include for-tablet-portrait-up() {
-        @include font($openSans, 30px, null, null, #ffffff);
+        @include font(30px, null, null, #ffffff);
         margin: 0 0 45px 0;
       }
       @include for-phone-only() {
-        @include font($openSans, 28px, null, null, #ffffff);
+        @include font(28px, null, null, #ffffff);
         margin: 0 0 45px 0;
       }
     }
     p {
       @include for-tablet-portrait-up() {
-        @include font($openSans, 14px, null, null, #cfcfcf);
+        @include font(14px, null, null, #cfcfcf);
         line-height: 28px;
       }
       @include for-phone-only() {
-        @include font($openSans, 13.5px, null, null, #cfcfcf);
+        @include font(13.5px, null, null, #cfcfcf);
         line-height: 28px;
       }
       @include for-additional-tablet-up() {
-        @include font($openSans, 15px, null, null, #cfcfcf);
+        @include font(15px, null, null, #cfcfcf);
       }
     }
   }
@@ -896,14 +929,15 @@ canvas {
     margin: 0 0 50px 0;
     a {
       text-decoration: none;
+      cursor: pointer;
     }
     i {
       margin: 0 20px 0 0;
       @include for-tablet-portrait-up() {
-        @include font(null, 26px, null, null, #ffffff);
+        @include font(26px, null, null, #ffffff);
       }
       @include for-phone-only() {
-        @include font(null, 25px, null, null, #ffffff);
+        @include font(25px, null, null, #ffffff);
       }
     }
   }
@@ -916,22 +950,22 @@ canvas {
     }
     h4 {
       @include for-tablet-portrait-up() {
-        @include font($openSans, 17px, 500, null, #ffffff);
+        @include font(17px, 500, null, #ffffff);
         margin: 0 0 20px 0;
       }
       @include for-phone-only() {
-        @include font($openSans, 15px, 500, null, #ffffff);
+        @include font(15px, 500, null, #ffffff);
         margin: 0 0 20px 0;
       }
     }
     a {
       @include for-tablet-portrait-up() {
-        @include font($openSans, 16px, null, null, #f1260d);
+        @include font(16px, null, null, #f1260d);
         margin: 0 0 10px 0;
         display: block;
       }
       @include for-phone-only() {
-        @include font($openSans, 15px, null, null, #f1260d);
+        @include font(15px, null, null, #f1260d);
         margin: 0 0 10px 0;
         display: block;
       }
@@ -939,10 +973,10 @@ canvas {
   }
   &__copyright {
     @include for-tablet-portrait-up() {
-      @include font($openSans, 12px, null, null, #cfcfcf);
+      @include font(12px, null, null, #cfcfcf);
     }
     @include for-phone-only() {
-      @include font($openSans, 12px, null, null, #cfcfcf);
+      @include font(12px, null, null, #cfcfcf);
     }
   }
 }
