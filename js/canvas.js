@@ -31,12 +31,12 @@ function Star(x, y, radius, color) {
   this.color = color;
   this.velocity = {
     x: (Math.random() - 0.5) * 8,
-    y: 3
+    y: 3,
   };
   this.friction = 0.8;
   this.gravity = 1;
 }
-Star.prototype.draw = function() {
+Star.prototype.draw = function () {
   c.save();
   c.beginPath();
   c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
@@ -48,7 +48,7 @@ Star.prototype.draw = function() {
   c.restore();
 };
 
-Star.prototype.update = function() {
+Star.prototype.update = function () {
   this.draw();
   // WHEN BALL HITS BOTTOM OF SCREEN
   if (this.y + this.radius + this.velocity.y > canvas.height - groundHeight) {
@@ -68,7 +68,7 @@ Star.prototype.update = function() {
   this.x += this.velocity.x;
   this.y += this.velocity.y;
 };
-Star.prototype.shatter = function() {
+Star.prototype.shatter = function () {
   this.radius -= 3;
   for (let i = 0; i < 8; i++) {
     miniStars.push(new MiniStar(this.x, this.y, 2));
@@ -78,14 +78,14 @@ function MiniStar(x, y, radius, color) {
   Star.call(this, x, y, radius, color);
   this.velocity = {
     x: randomIntFromRange(-5, 5),
-    y: randomIntFromRange(-15, 15)
+    y: randomIntFromRange(-15, 15),
   };
   this.friction = 0.8;
   this.gravity = 0.1;
   this.ttl = 200;
   this.opacity = 1;
 }
-MiniStar.prototype.draw = function() {
+MiniStar.prototype.draw = function () {
   c.save();
   c.beginPath();
   c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
@@ -97,7 +97,7 @@ MiniStar.prototype.draw = function() {
   c.restore();
 };
 
-MiniStar.prototype.update = function() {
+MiniStar.prototype.update = function () {
   this.draw();
   // WHEN BALL HITS BOTTOM OF SCREEN
   if (this.y + this.radius + this.velocity.y > canvas.height - groundHeight) {
@@ -156,7 +156,7 @@ animate = () => {
   requestAnimationFrame(animate);
   c.fillStyle = backgroundGradient;
   c.fillRect(0, 0, canvas.width, canvas.height);
-  backgroundStars.forEach(backgroundStar => {
+  backgroundStars.forEach((backgroundStar) => {
     backgroundStar.draw();
   });
 
@@ -281,13 +281,13 @@ let introduction = document.querySelector(".introduction");
 let phoneMenuBar = document.querySelector(".phoneMenuBar");
 const options = {
   root: null,
-  threshold: 0.95
+  threshold: 0.95,
 };
 const observer = new IntersectionObserver((entries, observer) => {
   if (window.matchMedia("(min-width: 750px)").matches) {
     gsap.to(".navContainer__logo", 0.5, { opacity: 1 });
 
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (!entry.isIntersecting) {
         gsap.fromTo(
           `.${mainNav.classList[0]}`,
@@ -329,7 +329,7 @@ const observer = new IntersectionObserver((entries, observer) => {
       }
     });
   } else {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (!entry.isIntersecting) {
         gsap.fromTo(".navContainer__logo", 0.5, { opacity: 1 }, { opacity: 0 });
       } else {
@@ -349,10 +349,10 @@ let loadingTime = true;
 const sectionOptions = {
   root: null,
   threshold: 0,
-  rootMargin: "0px 0px -100% 0px"
+  rootMargin: "0px 0px -100% 0px",
 };
 const sectionObserver = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       switch (entry.target.classList[0]) {
         case "introduction":
@@ -391,13 +391,12 @@ const sectionObserver = new IntersectionObserver((entries, observer) => {
   });
 }, sectionOptions);
 
-sections.forEach(sec => {
+sections.forEach((sec) => {
   sectionObserver.observe(sec);
 });
 
-
 // GO TO ABOUT ME
-goToSection = elem => {
+goToSection = (elem) => {
   if (menuShows) {
     menuClicked();
   }
@@ -412,7 +411,7 @@ function cursor(e) {
   mouseCursor.style.top = e.pageY + "px";
   mouseCursor.style.left = e.pageX + "px";
 }
-navLinks.forEach(link => {
+navLinks.forEach((link) => {
   link.addEventListener("mouseleave", () => {
     mouseCursor.classList.remove("linkGrow");
   });
@@ -421,21 +420,22 @@ navLinks.forEach(link => {
   });
 });
 
-showButs = (elem, but) => {
-  gsap.fromTo(but, 1, { opacity: 0 }, { opacity: 1 });
+showButs = (but) => {
+  gsap.fromTo(but, 0.5, { opacity: 0 }, { opacity: 1, ease: "expo.out" });
 };
-hideButs = (elem, but) => {
+hideButs = (but) => {
   gsap.fromTo(
     but,
-    1,
+    0.5,
     { opacity: 1 },
     {
       opacity: 0,
+      ease: "expo.out",
     }
   );
 };
 let undecoded = document.location.search.replace(/^.*?\=/, "");
-document.body.onload = function() {
+document.body.onload = function () {
   if (undecoded) {
     goToSection(`.${undecoded}`);
   }
