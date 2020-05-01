@@ -737,7 +737,7 @@ canvas {
 }
 
 .portfolio {
-  width: 100%;
+  width: 100vw;
   border:;
 }
 
@@ -973,11 +973,85 @@ canvas {
   min-height: 150px;
 }
 
+@media (max-width: 599px) {
+  .portfolio__img--agency {
+    width: 70%;
+    height: auto;
+    border:;
+  }
+}
+
+@media (max-width: 380px) {
+  .portfolio__img--agency {
+    width: 90%;
+    height: auto;
+    border:;
+  }
+}
+
 @media (min-width: 600px) {
-  .portfolio__img--realState {
+  .portfolio__img--agency {
     width: 60%;
     height: auto;
     border:;
+  }
+}
+
+@media (min-width: 750px) {
+  .portfolio__img--agency {
+    width: 100%;
+    height: auto;
+    border:;
+  }
+}
+
+@media (min-width: 1200px) {
+  .portfolio__img--agency {
+    width: 100%;
+    height: auto;
+    border:;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 599px) {
+  .portfolio__img--onlineShop {
+    width: 70%;
+    height: auto;
+    border:;
+  }
+}
+
+@media (max-width: 380px) {
+  .portfolio__img--onlineShop {
+    width: 90%;
+    height: auto;
+    border:;
+  }
+}
+
+@media (min-width: 600px) {
+  .portfolio__img--onlineShop {
+    width: 60%;
+    height: auto;
+    border:;
+  }
+}
+
+@media (min-width: 750px) {
+  .portfolio__img--onlineShop {
+    width: 100%;
+    height: auto;
+    border:;
+  }
+}
+
+@media (min-width: 1200px) {
+  .portfolio__img--onlineShop {
+    width: 80%;
+    height: auto;
+    border:;
+    padding: 30px;
   }
 }
 
@@ -992,6 +1066,14 @@ canvas {
 @media (max-width: 380px) {
   .portfolio__img--realState {
     width: 90%;
+    height: auto;
+    border:;
+  }
+}
+
+@media (min-width: 600px) {
+  .portfolio__img--realState {
+    width: 60%;
     height: auto;
     border:;
   }
@@ -1014,16 +1096,9 @@ canvas {
   }
 }
 
-@media (min-width: 600px) {
-  .portfolio__img--restaurant {
-    width: 50%;
-    border:;
-  }
-}
-
 @media (max-width: 599px) {
   .portfolio__img--restaurant {
-    width: 50%;
+    width: 60%;
     border:;
   }
 }
@@ -1031,6 +1106,13 @@ canvas {
 @media (max-width: 380px) {
   .portfolio__img--restaurant {
     width: 80%;
+    border:;
+  }
+}
+
+@media (min-width: 600px) {
+  .portfolio__img--restaurant {
+    width: 50%;
     border:;
   }
 }

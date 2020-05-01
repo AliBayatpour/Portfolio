@@ -422,7 +422,7 @@ canvas {
 }
 
 .portfolio {
-  @include box(100%, null, null, null, null);
+  @include box(100vw, null, null, null, null);
   @include for-phone-only() {
     padding: 100px 0 0 0;
   }
@@ -529,15 +529,51 @@ canvas {
     padding: 15px;
     min-width: 50px;
     min-height: 150px;
-    &--realState {
-      @include for-tablet-portrait-up() {
-        @include box(60%, auto, null, null, null);
-      }
+    &--agency {
       @include for-phone-only() {
         @include box(70%, auto, null, null, null);
       }
       @include for-extra-small-phone-only() {
         @include box(90%, auto, null, null, null);
+      }
+      @include for-tablet-portrait-up() {
+        @include box(60%, auto, null, null, null);
+      }
+      @include for-additional-tablet-up() {
+        @include box(100%, auto, null, null, null);
+      }
+      @include for-desktop-up() {
+        @include box(100%, auto, null, null, null);
+        padding: 30px;
+      }
+    }
+    &--onlineShop {
+      @include for-phone-only() {
+        @include box(70%, auto, null, null, null);
+      }
+      @include for-extra-small-phone-only() {
+        @include box(90%, auto, null, null, null);
+      }
+      @include for-tablet-portrait-up() {
+        @include box(60%, auto, null, null, null);
+      }
+      @include for-additional-tablet-up() {
+        @include box(100%, auto, null, null, null);
+      }
+      @include for-desktop-up() {
+        @include box(80%, auto, null, null, null);
+        padding: 30px;
+      }
+    }
+    &--realState {
+      @include for-phone-only() {
+        @include box(70%, auto, null, null, null);
+      }
+      @include for-extra-small-phone-only() {
+        @include box(90%, auto, null, null, null);
+      }
+      @include for-tablet-portrait-up() {
+        @include box(60%, auto, null, null, null);
       }
       @include for-additional-tablet-up() {
         @include box(90%, auto, null, null, null);
@@ -548,14 +584,14 @@ canvas {
       }
     }
     &--restaurant {
-      @include for-tablet-portrait-up() {
-        @include box(50%, null, null, null, null);
-      }
       @include for-phone-only() {
-        @include box(50%, null, null, null, null);
+        @include box(60%, null, null, null, null);
       }
       @include for-extra-small-phone-only() {
         @include box(80%, null, null, null, null);
+      }
+      @include for-tablet-portrait-up() {
+        @include box(50%, null, null, null, null);
       }
       @include for-additional-tablet-up() {
         @include box(70%, null, null, null, null);
