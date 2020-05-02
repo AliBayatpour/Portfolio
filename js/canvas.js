@@ -1,5 +1,6 @@
 // INITIALIZING GSAP SCROLL TO
 gsap.registerPlugin(ScrollToPlugin);
+window.location.href = "alibayatpour.com";
 
 //INITIALIZING PAGE TRANSITION SWUP
 const canvas = document.querySelector("canvas");
@@ -409,7 +410,7 @@ const skilledObserver = new IntersectionObserver((entries, observer) => {
         ".portfolio__skillSvg",
         2,
         { y: "-100vh, opacity: 0" },
-        { y: "0%", opacity:1, ease: "bounce.out", stagger: 0.2 }
+        { y: "0%", opacity: 1, ease: "bounce.out", stagger: 0.2 }
       );
       console.log("intersect");
       observer.unobserve(entry.target);
