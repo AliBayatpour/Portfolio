@@ -1,6 +1,5 @@
 // INITIALIZING GSAP SCROLL TO
 gsap.registerPlugin(ScrollToPlugin);
-window.location.href = "alibayatpour.com";
 
 //INITIALIZING PAGE TRANSITION SWUP
 const canvas = document.querySelector("canvas");
