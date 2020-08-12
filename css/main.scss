@@ -477,6 +477,16 @@ canvas {
       margin: 0 0 50px 0;
     }
   }
+  &__info {
+    margin-bottom: 16px;
+    @include for-phone-only() {
+      @include font(14px, null, null, #555555);
+    }
+    @include for-tablet-portrait-up() {
+      @include box(100%, null, null, null, null);
+      @include font(15px, null, null, #555555);
+    }
+  }
   .workItem {
     @include flex(center, center, null);
     box-shadow: 0 0 20px 0 #d6d6d6;
@@ -678,7 +688,7 @@ canvas {
       @include for-extra-small-phone-only() {
         @include font(14px, 500, null, #000000);
       }
-      @include for-tablet-portrait-up(){
+      @include for-tablet-portrait-up() {
         @include font(16px, 500, null, #000000);
       }
     }

@@ -837,6 +837,26 @@ canvas {
   }
 }
 
+.portfolio__info {
+  margin-bottom: 16px;
+}
+
+@media (max-width: 599px) {
+  .portfolio__info {
+    font-size: 14px;
+    color: #555555;
+  }
+}
+
+@media (min-width: 600px) {
+  .portfolio__info {
+    width: 100%;
+    border:;
+    font-size: 15px;
+    color: #555555;
+  }
+}
+
 .portfolio .workItem {
   display: -webkit-box;
   display: -ms-flexbox;
